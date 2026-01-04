@@ -1,0 +1,21 @@
+<div class="change">
+    <h2>Modifier le projet</h2>
+    <form method="POST">
+        <p>Titre:</p>
+        <input type="text" name="titre" value="<?= htmlspecialchars($projet['titre']) ?>" required/>
+
+        <p>Description:</p>
+        <textarea name="description" required><?= htmlspecialchars($projet['description']) ?></textarea>
+
+        <p>Image (URL):</p>
+        <input type="text" name="image" value="<?= htmlspecialchars($projet['image']) ?>" required/>
+
+        <p>Description courte:</p>
+        <textarea name="short_description" required><?= htmlspecialchars($projet['short_description']) ?></textarea>
+
+        <button type="submit">Sauvegarder les modifications</button>
+            <a href="index.php?page=board">
+        <button type="button">Retourner</button>
+    </a>
+    </form>
+    </div>

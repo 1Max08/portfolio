@@ -1,0 +1,653 @@
+.background {
+  background-image: url("../img/matrix.gif");
+}
+
+.error {
+  color: #07EC17;
+  text-align: center;
+  font-family: "Outfit";
+  font-size: 35vh;
+  margin: auto;
+  padding-bottom: 2rem;
+}
+
+.lost {
+  color: #07EC17;
+  text-align: center;
+  font-family: "Outfit";
+  font-size: 5vh;
+  margin: auto;
+  padding-bottom: 5rem;
+}
+
+@media screen and (min-width: 761px) {
+  .error {
+    font-size: 37vh;
+  }
+  .lost {
+    font-size: 7vh;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .error {
+    font-size: 40vh;
+  }
+  .lost {
+    font-size: 7vh;
+  }
+}
+a {
+  color: black;
+}
+
+.change {
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.change h2 {
+  font-family: "Arvo";
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+.change form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.change form p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0.5rem 0;
+  font-weight: bold;
+  color: #333;
+}
+.change form input {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: sans-serif;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.change form input:focus {
+  outline: none;
+  border-color: #7AF951;
+  box-shadow: 0 0 5px rgba(122, 249, 81, 0.5);
+}
+.change form textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: sans-serif;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.change form button {
+  background-color: #7AF951;
+  color: #000;
+  font-weight: bold;
+  padding: 1rem 3.2rem;
+  border: none;
+  border-radius: 0.6rem;
+  transition: transform 0.7s;
+}
+.change form button:hover {
+  transform: scale(1.2);
+}
+.change form button[type=submit] {
+  margin: 0.5rem;
+  background-color: #7AF951;
+  color: #000;
+  font-weight: bold;
+  padding: 1rem 3.2rem;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: transform 0.7s;
+}
+.change form button[type=submit]:hover {
+  transform: scale(1.2);
+}
+.change form button[type=submit] a {
+  margin: 0.5rem;
+  text-decoration: none;
+}
+
+.login {
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.login h2 {
+  font-family: "Arvo";
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+.login form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login form label {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0.2rem 0;
+  font-weight: bold;
+  color: #333;
+  align-self: flex-start;
+}
+.login form input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: sans-serif;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.login form input:focus {
+  outline: none;
+  border-color: #7AF951;
+  box-shadow: 0 0 5px rgba(122, 249, 81, 0.5);
+}
+.login form button {
+  background-color: #7AF951;
+  color: #000;
+  font-weight: bold;
+  padding: 1rem 3.2rem;
+  border-radius: 0.6rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.7s;
+}
+.login form button:hover {
+  transform: scale(1.2);
+}
+.login form button:focus {
+  outline: 2px solid #5cd33c;
+  outline-offset: 2px;
+}
+
+.projects {
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.projects h1 {
+  font-family: "Arvo";
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+.projects p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #333;
+}
+.projects img {
+  width: 100%;
+  max-height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+.projects a button {
+  background-color: #7AF951;
+  color: #000000;
+  padding: 1rem 3.2rem;
+  font-weight: bold;
+  border-radius: 0.6rem;
+  border: none;
+  outline: none;
+  transition: transform 0.7s;
+}
+.projects a button:hover {
+  transform: scale(1.2);
+}
+
+header {
+  background-color: #7AF951;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+header h1 {
+  font-family: "Andada Pro", serif;
+  padding-left: 1rem;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.introduction {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/programming.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  padding: 5%;
+  margin-bottom: 5%;
+}
+.introduction .text {
+  color: white;
+  padding-left: 5%;
+}
+.introduction .text .btn-cv {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background-color: #7AF951;
+  color: #000;
+  font-weight: bold;
+  padding: 1rem 3.2rem;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  transition: transform 0.7s;
+}
+.introduction .text .btn-cv:hover {
+  transform: scale(1.2);
+}
+.introduction .text .btn-cv:focus {
+  outline: 2px solid #5cd33c;
+  outline-offset: 2px;
+}
+.introduction .text h2 {
+  font-size: 40px;
+  text-align: center;
+  font-family: "Arvo";
+}
+.introduction .text p {
+  font-size: 20px;
+}
+.introduction .profil {
+  width: 35%;
+  height: 35%;
+  border-radius: 100%;
+}
+
+.allprojet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.allprojet .projettitre {
+  font-size: 40px;
+  text-align: center;
+  font-family: "Arvo";
+}
+.allprojet .projet {
+  transition: transform 0.7s;
+  margin-bottom: 7%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.allprojet .projet:hover {
+  transform: scale(1.2);
+}
+.allprojet .projet .projetdesc {
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  background-color: #7AF951;
+  position: absolute;
+  border-radius: 0 0 1rem 1rem;
+}
+.allprojet .projet h2 {
+  font-size: 20px;
+}
+.allprojet .projet p {
+  font-size: 20px;
+}
+.allprojet .projet img {
+  width: 100%;
+  height: 17em;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1rem;
+}
+
+.skilltitle {
+  font-size: 40px;
+  text-align: center;
+  font-family: "Arvo";
+}
+
+.skills {
+  margin-right: 20%;
+  margin-left: 20%;
+  padding: 2%;
+  border-radius: 2rem;
+  background-color: #7AF951;
+}
+.skills p {
+  font-size: 20px;
+  margin-left: 5%;
+}
+
+.contact {
+  text-align: center;
+  margin-top: 4rem;
+}
+.contact h2 {
+  font-size: 40px;
+  font-family: "Arvo";
+  margin-bottom: 2rem;
+}
+.contact .flash {
+  max-width: 600px;
+  margin: 1.5rem auto;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: center;
+  font-family: sans-serif;
+}
+.contact .flash p {
+  margin: 0;
+  font-size: 16px;
+}
+.contact .flash.success {
+  background-color: #7AF951;
+  color: #000;
+}
+.contact .flash.error {
+  background-color: #ff6b6b;
+  color: #000;
+}
+.contact .contact-form {
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.contact .contact-form label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  color: #333;
+}
+.contact .contact-form label input {
+  margin-top: 0.4rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: sans-serif;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.contact .contact-form label input:focus {
+  outline: none;
+  border-color: #7AF951;
+  box-shadow: 0 0 5px rgba(122, 249, 81, 0.5);
+}
+.contact .contact-form label textarea {
+  margin-top: 0.4rem;
+  padding: 0.6rem 0.8rem;
+  min-height: 120px;
+  resize: vertical;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: sans-serif;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.contact .contact-form label textarea:focus {
+  outline: none;
+  border-color: #7AF951;
+  box-shadow: 0 0 5px rgba(122, 249, 81, 0.5);
+}
+.contact .contact-form .btn-submit {
+  align-self: center;
+  margin-top: 1rem;
+  background-color: #7AF951;
+  color: #000;
+  font-weight: bold;
+  padding: 1rem 3.2rem;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: transform 0.7s;
+}
+.contact .contact-form .btn-submit:hover {
+  transform: scale(1.2);
+}
+.contact .contact-form .btn-submit:focus {
+  outline: 2px solid #5cd33c;
+  outline-offset: 2px;
+}
+.contact .contactinfo {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+.contact .contactinfo p {
+  font-size: 20px;
+}
+
+.dashboard {
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.dashboard h2 {
+  font-family: "Arvo";
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+.dashboard form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dashboard form p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0.5rem 0;
+  font-weight: bold;
+  color: #333;
+}
+.dashboard form input,
+.dashboard form textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: sans-serif;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.dashboard form button[type=submit] {
+  margin-top: 1rem;
+  background-color: #7AF951;
+  color: #000;
+  font-weight: bold;
+  padding: 1rem 3.2rem;
+  border-radius: 0.6rem;
+  border: none;
+  outline: none;
+  transition: transform 0.7s;
+}
+.dashboard form button[type=submit]:hover {
+  transform: scale(1.2);
+}
+.dashboard .title {
+  font-family: "Arvo";
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+.dashboard .dashboard-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.dashboard .dashboard-buttons a {
+  margin: 0.5rem;
+}
+.dashboard .dashboard-buttons a button {
+  background-color: #7AF951;
+  color: #000;
+  font-weight: bold;
+  padding: 1rem 3.2rem;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: transform 0.7s;
+}
+.dashboard .dashboard-buttons a button:hover {
+  transform: scale(1.2);
+}
+.dashboard .message {
+  border: 2px solid #7AF951;
+  padding: 1rem;
+  margin: 1.5rem auto;
+  max-width: 800px;
+  border-radius: 1rem;
+}
+.dashboard .message.unread {
+  background-color: rgba(122, 249, 81, 0.15);
+}
+.dashboard .message.read {
+  opacity: 0.7;
+}
+@media screen and (min-width: 768px) {
+  .dashboard h2 {
+    font-size: 3rem;
+  }
+  .dashboard form input,
+  .dashboard form textarea {
+    font-size: 1.1rem;
+  }
+  .dashboard .title {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .dashboard h2 {
+    font-size: 3.5rem;
+  }
+  .dashboard form input,
+  .dashboard form textarea {
+    font-size: 1.2rem;
+  }
+  .dashboard .title {
+    font-size: 2.2rem;
+  }
+}
+
+footer {
+  background-color: #7AF951;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+@media screen and (min-width: 761px) {
+  .introduction .text h2 {
+    font-size: 60px;
+  }
+  .introduction .text p {
+    font-size: 25px;
+  }
+  .introduction .profil {
+    width: 35%;
+    height: 35%;
+  }
+  .skilltitle {
+    font-size: 60px;
+  }
+  .skills {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  .skills p {
+    font-size: 25px;
+  }
+  .allprojet .projettitre {
+    font-size: 60px;
+  }
+  .allprojet .projet h2 {
+    font-size: 25px;
+  }
+  .allprojet .projet p {
+    font-size: 25px;
+  }
+  .allprojet .projet img {
+    height: 20em;
+  }
+  .contact h2 {
+    font-size: 60px;
+  }
+  .contact .contactinfo p {
+    font-size: 25px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .introduction .text h2 {
+    font-size: 70px;
+  }
+  .introduction .text p {
+    font-size: 30px;
+  }
+  .skilltitle {
+    font-size: 70px;
+  }
+  .allprojet .projettitre {
+    font-size: 60px;
+  }
+  .allprojet .grid-container {
+    display: grid;
+    margin: auto;
+    gap: 4rem;
+    grid-template-rows: repeat(1, 15fr);
+    grid-template-columns: repeat(3, 15fr);
+    width: 90%;
+  }
+  .allprojet .projet img {
+    height: 17em;
+  }
+  .contact h2 {
+    font-size: 70px;
+  }
+  .contact .contactinfo p {
+    font-size: 30px;
+  }
+  .projects h1 {
+    font-size: 4rem;
+  }
+  .projects p {
+    font-size: 1.4rem;
+  }
+  .projects img {
+    max-height: 600px;
+  }
+}/*# sourceMappingURL=app.css.map */
