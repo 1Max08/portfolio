@@ -31,7 +31,13 @@ class ChangeController extends AbstractController {
                 $image = $_POST['image'];
                 $short_description = $_POST['short_description'];
 
-                $result = $this->changeRepository->UpdateProjet($id, $titre, $description, $image, $short_description);
+                $result = $this->changeRepository->UpdateProjet(
+                    $id,
+                    $titre,
+                    $description,
+                    $image,
+                    $short_description
+                );
 
                 if ($result) {
                     header("Location: index.php?page=board");

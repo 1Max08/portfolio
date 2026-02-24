@@ -2,7 +2,6 @@
     background-image: url("../img/matrix.gif");
 }
 
-
 .error {
     color: #07EC17;
     text-align: center;
@@ -21,8 +20,7 @@
     padding-bottom: 5rem;
 }
 
-
-@media screen and (min-width:761px) {
+@media screen and (min-width: 761px) {
     .error {
         font-size: 37vh;
     }
@@ -30,10 +28,9 @@
     .lost {
         font-size: 7vh;
     }
-
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width: 1024px) {
     .error {
         font-size: 40vh;
     }
@@ -41,5 +38,4 @@
     .lost {
         font-size: 7vh;
     }
-
 }

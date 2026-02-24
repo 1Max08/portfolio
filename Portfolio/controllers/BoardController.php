@@ -13,13 +13,12 @@ class BoardController extends AbstractController {
     private $boardRepository;
 
     public function logoutUser() {
-    $this->logout();
+        $this->logout();
     }
 
     public function __construct() {
         $this->boardRepository = new BoardRepository();
     }
-    
 
     public function board() {
         $this->requireLogin();

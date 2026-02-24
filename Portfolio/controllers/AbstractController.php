@@ -16,8 +16,8 @@ abstract class AbstractController {
             exit;
         }
     }
-    
-        protected function logout() {
+
+    protected function logout() {
         $this->startSession();
         $_SESSION = [];
         session_unset();

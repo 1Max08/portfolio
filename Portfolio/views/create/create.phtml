@@ -5,6 +5,7 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 ?>
+
 <div class="create">
     <h2>Crée un projet</h2>
 
@@ -17,13 +18,14 @@ if (!isset($_SESSION['user'])) {
 
         <p>Image (URL):</p>
         <input type="text" name="image" value="<?= isset($projet['image']) ? htmlspecialchars($projet['image']) : '' ?>" required/>
+
         <p>Description courte:</p>
         <textarea name="short_description" required><?= isset($projet['short_description']) ? htmlspecialchars($projet['short_description']) : '' ?></textarea>
 
         <button type="submit">Créer</button>
     </form>
 
-            <a href="index.php?page=board">
+    <a href="index.php?page=board">
         <button type="button">Retourner</button>
     </a>
-    </div>
+</div>

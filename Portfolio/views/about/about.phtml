@@ -6,25 +6,26 @@
         <a href="assets/files/CV_MaxPham.pdf" class="btn-cv" download>Télécharger mon CV</a>
     </div>
 </section>
+
 <section class="allprojet">
     <h2 class="projettitre">Mes Projets</h2>
     <div class="grid-container">
 
-<?php foreach ($projet as $projets): ?>
-    <article class="projet">
-        <a href="index.php?page=projet&id=<?= $projets['id'] ?>">
-            <img src="assets/img/<?= htmlspecialchars($projets['image']) ?>" alt="image projet">
-            <div class="projetdesc">
-                <h2 class="title"><?= htmlspecialchars($projets['titre']) ?></h2>
-                <p class="desc"><?= htmlspecialchars($projets['short_description']) ?></p>
-            </div>
-        </a>
-    </article>
-<?php endforeach; ?>
-        </article>
+        <?php foreach ($projet as $projets): ?>
+            <article class="projet">
+                <a href="index.php?page=projet&id=<?= $projets['id'] ?>">
+                    <img src="assets/img/<?= htmlspecialchars($projets['image']) ?>" alt="image projet">
+                    <div class="projetdesc">
+                        <h2 class="title"><?= htmlspecialchars($projets['titre']) ?></h2>
+                        <p class="desc"><?= htmlspecialchars($projets['short_description']) ?></p>
+                    </div>
+                </a>
+            </article>
+        <?php endforeach; ?>
+
     </div>
 </section>
-<section>
+
 <section>
     <article class="contact">
         <h2>Contactez-moi</h2>
@@ -56,6 +57,7 @@
             <button type="submit" name="contact_submit" class="btn-submit">Envoyer</button>
         </form>
     </article>
+
     <article class="contact">
         <div class="contactinfo">
             <p>max.pham@3wacademy.fr</p>

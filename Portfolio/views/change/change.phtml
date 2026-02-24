@@ -5,6 +5,7 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 ?>
+
 <div class="change">
     <h2>Modifier le projet</h2>
     <form method="POST">
@@ -21,8 +22,8 @@ if (!isset($_SESSION['user'])) {
         <textarea name="short_description" required><?= htmlspecialchars($projet['short_description']) ?></textarea>
 
         <button type="submit">Sauvegarder les modifications</button>
-            <a href="index.php?page=board">
-        <button type="button">Retourner</button>
-    </a>
+        <a href="index.php?page=board">
+            <button type="button">Retourner</button>
+        </a>
     </form>
-    </div>
+</div>

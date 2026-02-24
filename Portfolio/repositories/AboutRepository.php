@@ -6,6 +6,7 @@ require_once "services/database.php";
 require_once "repositories/AbstractRepository.php";
 
 class AboutRepository extends AbstractRepository {
+
     public function getProfil(): array|bool {
         $pdo = getConnexion();
 
@@ -16,18 +17,17 @@ class AboutRepository extends AbstractRepository {
 
         return $result;
     }
-    
+
     public function getProjet(): array {
         $query = $this->pdo->prepare('SELECT * FROM projet');
         $query->execute();
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
-    
+
     public function getCategories(): array {
         $query = $this->pdo->prepare('SELECT * FROM category WHERE id');
         $query->execute();
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
-    
-}
 
+}

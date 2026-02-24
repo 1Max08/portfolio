@@ -2,224 +2,18 @@
 
 a {
   color: black;
-}
-
-.change {
-  text-align: center;
-  padding: 3rem 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-
-  h2 {
-    font-family: "Arvo";
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #333;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0 0.5rem 0;
-      font-weight: bold;
-      color: #333;
-    }
-
-    input {
-      width: 100%;
-      max-width: 500px;
-      padding: 0.6rem 0.8rem;
-      margin-bottom: 1.5rem;
-      border: 1px solid #ccc;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      font-family: sans-serif;
-      transition: border 0.3s ease, box-shadow 0.3s ease;
-
-      &:focus {
-        outline: none;
-        border-color: #7AF951;
-        box-shadow: 0 0 5px rgba(122, 249, 81, 0.5);
-      }
-    }
-
-    textarea {
-      width: 100%;
-      max-width: 500px;
-      padding: 0.6rem 0.8rem;
-      margin-bottom: 1.5rem;
-      border: 1px solid #ccc;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      font-family: sans-serif;
-      transition: border 0.3s ease, box-shadow 0.3s ease;
-
-    }
-
-            button {
-          background-color: #7AF951;
-          color: #000;
-          font-weight: bold;
-          padding: 1rem 3.2rem;
-          border: none;
-          border-radius: 0.6rem;
-          transition: transform 0.7s;
-
-          &:hover {
-            transform: scale(1.2);
-          }
-          }
-
-      button[type="submit"] {
-        margin: 0.5rem;
-        background-color: #7AF951;
-        color: #000;
-        font-weight: bold;
-        padding: 1rem 3.2rem;
-        border: none;
-        border-radius: 0.6rem;
-        cursor: pointer;
-        transition: transform 0.7s;
-
-        &:hover {
-          transform: scale(1.2);
-        }
-
-
-
-      a {
-        margin: 0.5rem;
-        text-decoration: none;
-        }
-      }
-    }
-  }
-.login {
-  text-align: center;
-  padding: 3rem 2rem;
-  max-width: 500px;
-  margin: 0 auto;
-
-  h2 {
-    font-family: "Arvo";
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #333;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    label {
-      font-size: 1.2rem;
-      margin: 0.5rem 0 0.2rem 0;
-      font-weight: bold;
-      color: #333;
-      align-self: flex-start;
-    }
-
-    input {
-      width: 100%;
-      padding: 0.6rem 0.8rem;
-      margin-bottom: 1.5rem;
-      border: 1px solid #ccc;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      font-family: sans-serif;
-      transition: border 0.3s ease, box-shadow 0.3s ease;
-
-      &:focus {
-        outline: none;
-        border-color: #7AF951;
-        box-shadow: 0 0 5px rgba(122, 249, 81, 0.5);
-      }
-    }
-
-    button {
-      background-color: #7AF951;
-      color: #000;
-      font-weight: bold;
-      padding: 1rem 3.2rem;
-      border-radius: 0.6rem;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.7s;
-
-      &:hover {
-        transform: scale(1.2);
-      }
-
-      &:focus {
-        outline: 2px solid #5cd33c;
-        outline-offset: 2px;
-      }
-    }
-  }
-}
-
-
-.projects {
-  padding: 4rem 2rem;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-
-  h1 {
-    font-family: "Arvo";
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #333;
-  }
-
-  p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-    color: #333;
-  }
-
-  img {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    border-radius: 1rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  }
-
-  a {
-    button {
-      background-color: #7AF951;
-      color: #000000;
-      padding: 1rem 3.2rem;
-      font-weight: bold;
-      border-radius: 0.6rem;
-      border: none;
-      outline: none;
-      transition: transform 0.7s;
-      
-      &:hover {
-        transform: scale(1.2);
-      }
-    }
-  }
+  text-decoration: none;
 }
 
 header {
+  background-color: #7AF951;
+  width: 100%;
+  padding: 1rem 0;
+
   h1 {
     font-family: "Andada Pro", serif;
     padding-left: 1rem;
   }
-  background-color: #7AF951;
-  width: 100%;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 
 body {
@@ -230,7 +24,7 @@ body {
 }
 
 .introduction {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/programming.png");
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../img/programming.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -241,7 +35,18 @@ body {
   .text {
     color: white;
     padding-left: 5%;
-        .btn-cv {
+
+    h2 {
+      font-size: 40px;
+      font-family: "Arvo";
+      text-align: center;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    .btn-cv {
       display: inline-block;
       margin-top: 1.5rem;
       background-color: #7AF951;
@@ -261,16 +66,6 @@ body {
         outline-offset: 2px;
       }
     }
-
-    h2 {
-      font-size: 40px;
-      text-align: center;
-      font-family: "Arvo";
-    }
-
-    p {
-      font-size: 20px;
-    }
   }
 
   .profil {
@@ -281,15 +76,16 @@ body {
 }
 
 .allprojet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   .projettitre {
     font-size: 40px;
     text-align: center;
     font-family: "Arvo";
   }
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
   .projet {
     transition: transform 0.7s;
@@ -299,32 +95,24 @@ body {
     flex-direction: column;
     align-items: center;
 
-    &:hover {
-      transform: scale(1.2);
-    }
-
-    .projetdesc {
-      width: 100%;
-      bottom: 0;
-      text-align: center;
-      background-color: #7AF951;
-      position: absolute;
-      border-radius: 0 0 1rem 1rem;
-    }
-
-    h2 {
-      font-size: 20px;
-    }
-
-    p {
-      font-size: 20px;
-    }
+    &:hover { transform: scale(1.2); }
 
     img {
       width: 100%;
       height: 17em;
       object-fit: cover;
       border-radius: 1rem;
+    }
+
+    .projetdesc {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      background-color: #7AF951;
+      border-radius: 0 0 1rem 1rem;
+
+      h2, p { font-size: 20px; }
     }
   }
 }
@@ -336,8 +124,7 @@ body {
 }
 
 .skills {
-  margin-right: 20%;
-  margin-left: 20%;
+  margin: 0 20%;
   padding: 2%;
   border-radius: 2rem;
   background-color: #7AF951;
@@ -352,35 +139,18 @@ body {
   text-align: center;
   margin-top: 4rem;
 
-  h2 {
-    font-size: 40px;
-    font-family: "Arvo";
-    margin-bottom: 2rem;
-  }
+  h2 { font-size: 40px; font-family: "Arvo"; margin-bottom: 2rem; }
 
   .flash {
-  max-width: 600px;
-  margin: 1.5rem auto;
-  padding: 1rem 1.5rem;
-  border-radius: 0.75rem;
-  font-size: 16px;
-  line-height: 1.4;
-  text-align: center;
-  font-family: sans-serif;
-      p {
-    margin: 0;
+    max-width: 600px;
+    margin: 1.5rem auto;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
     font-size: 16px;
-  }
+    text-align: center;
 
-    &.success {
-      background-color: #7AF951;
-      color: #000;
-    }
-
-    &.error {
-      background-color: #ff6b6b;
-      color: #000;
-    }
+    &.success { background-color: #7AF951; color: #000; }
+    &.error { background-color: #ff6b6b; color: #000; }
   }
 
   .contact-form {
@@ -388,17 +158,15 @@ body {
     margin: 0 auto 3rem auto;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
 
     label {
       display: flex;
       flex-direction: column;
-      text-align: left;
       font-weight: bold;
       margin-bottom: 1.2rem;
       color: #333;
 
-      input {
+      input, textarea {
         margin-top: 0.4rem;
         padding: 0.6rem 0.8rem;
         border-radius: 0.5rem;
@@ -414,23 +182,7 @@ body {
         }
       }
 
-      textarea {
-        margin-top: 0.4rem;
-        padding: 0.6rem 0.8rem;
-        min-height: 120px;
-        resize: vertical;
-        border-radius: 0.5rem;
-        border: 1px solid #ccc;
-        font-size: 1rem;
-        font-family: sans-serif;
-        transition: border 0.3s ease, box-shadow 0.3s ease;
-
-        &:focus {
-          outline: none;
-          border-color: #7AF951;
-          box-shadow: 0 0 5px rgba(122, 249, 81, 0.5);
-        }
-      }
+      textarea { min-height: 120px; resize: vertical; }
     }
 
     .btn-submit {
@@ -445,28 +197,15 @@ body {
       cursor: pointer;
       transition: transform 0.7s;
 
-      &:hover {
-        transform: scale(1.2);
-      }
-
-      &:focus {
-        outline: 2px solid #5cd33c;
-        outline-offset: 2px;
-      }
+      &:hover { transform: scale(1.2); }
+      &:focus { outline: 2px solid #5cd33c; outline-offset: 2px; }
     }
   }
 
-  .contactinfo {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
+  .contactinfo { display: flex; justify-content: center; gap: 3rem; }
 
-    p {
-      font-size: 20px;
-    }
-  }
+  .contactinfo p { font-size: 20px; }
 }
-
 
 .dashboard {
   text-align: center;
@@ -474,27 +213,16 @@ body {
   max-width: 800px;
   margin: 0 auto;
 
-  h2 {
-    font-family: "Arvo";
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #333;
-  }
+  h2 { font-family: "Arvo"; font-size: 2.5rem; margin-bottom: 2rem; color: #333; }
 
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0 0.5rem 0;
-      font-weight: bold;
-      color: #333;
-    }
+    p { font-size: 1.2rem; margin: 0.5rem 0; font-weight: bold; color: #333; }
 
-    input,
-    textarea {
+    input, textarea {
       width: 100%;
       max-width: 500px;
       padding: 0.6rem 0.8rem;
@@ -504,7 +232,6 @@ body {
       font-size: 1rem;
       font-family: sans-serif;
       transition: border 0.3s ease, box-shadow 0.3s ease;
-
     }
 
     button[type="submit"] {
@@ -518,20 +245,11 @@ body {
       outline: none;
       transition: transform 0.7s;
 
-      &:hover {
-        transform: scale(1.2);
-      }
-
+      &:hover { transform: scale(1.2); }
     }
   }
 
-  .title {
-    font-family: "Arvo";
-    font-size: 1.8rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: #333;
-  }
+  .title { font-family: "Arvo"; font-size: 1.8rem; margin: 2rem 0 1rem 0; color: #333; }
 
   .dashboard-buttons {
     display: flex;
@@ -539,194 +257,66 @@ body {
     justify-content: center;
     margin-top: 1rem;
 
-    a {
-      margin: 0.5rem;
+    a { margin: 0.5rem; }
 
-      button {
-        background-color: #7AF951;
-        color: #000;
-        font-weight: bold;
-        padding: 1rem 3.2rem;
-        border: none;
-        border-radius: 0.6rem;
-        cursor: pointer;
-        transition: transform 0.7s;
+    button {
+      background-color: #7AF951;
+      color: #000;
+      font-weight: bold;
+      padding: 1rem 3.2rem;
+      border: none;
+      border-radius: 0.6rem;
+      cursor: pointer;
+      transition: transform 0.7s;
 
-        &:hover {
-          transform: scale(1.2);
-        }
-
-      }
+      &:hover { transform: scale(1.2); }
     }
   }
 
   .message {
-  border: 2px solid #7AF951;
-  padding: 1rem;
-  margin: 1.5rem auto;
-  max-width: 800px;
-  border-radius: 1rem;
+    border: 2px solid #7AF951;
+    padding: 1rem;
+    margin: 1.5rem auto;
+    max-width: 800px;
+    border-radius: 1rem;
 
-  &.unread {
-    background-color: rgba(122, 249, 81, 0.15);
-  }
-
-  &.read {
-    opacity: 0.7;
-  }
-}
-
-
-  @media screen and (min-width: 768px) {
-    h2 {
-      font-size: 3rem;
-    }
-
-    form {
-      input,
-      textarea {
-        font-size: 1.1rem;
-      }
-    }
-
-    .title {
-      font-size: 2rem;
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    h2 {
-      font-size: 3.5rem;
-    }
-
-    form {
-      input,
-      textarea {
-        font-size: 1.2rem;
-      }
-    }
-
-    .title {
-      font-size: 2.2rem;
-    }
+    &.unread { background-color: rgba(122, 249, 81, 0.15); }
+    &.read { opacity: 0.7; }
   }
 }
 
 footer {
   background-color: #7AF951;
   width: 100%;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1rem 0;
 }
 
 @media screen and (min-width: 761px) {
-  .introduction {
-    .text {
-      h2 {
-        font-size: 60px;
-      }
-      p {
-        font-size: 25px;
-      }
-    }
-    .profil {
-      width: 35%;
-      height: 35%;
-    }
-  }
-
-  .skilltitle {
-    font-size: 60px;
-  }
-
-  .skills {
-    margin-left: 15%;
-    margin-right: 15%;
-    p {
-      font-size: 25px;
-    }
-  }
-
-  .allprojet {
-    .projettitre {
-      font-size: 60px;
-    }
-    .projet {
-      h2 {
-        font-size: 25px;
-      }
-      p {
-        font-size: 25px;
-      }
-      img {
-        height: 20em;
-      }
-    }
-  }
-
-  .contact {
-    h2 {
-      font-size: 60px;
-    }
-    .contactinfo p {
-      font-size: 25px;
-    }
-  }
+  .introduction .text h2 { font-size: 60px; }
+  .introduction .text p { font-size: 25px; }
+  .skilltitle { font-size: 60px; }
+  .skills { margin: 0 15%; }
+  .skills p { font-size: 25px; }
+  .allprojet .projettitre { font-size: 60px; }
+  .allprojet .projet h2, .allprojet .projet p { font-size: 25px; }
+  .allprojet .projet img { height: 20em; }
+  .contact h2 { font-size: 60px; }
+  .contactinfo p { font-size: 25px; }
 }
 
 @media screen and (min-width: 1024px) {
-  .introduction {
-    .text {
-      h2 {
-        font-size: 70px;
-      }
-      p {
-        font-size: 30px;
-      }
-    }
+  .introduction .text h2 { font-size: 70px; }
+  .introduction .text p { font-size: 30px; }
+  .skilltitle { font-size: 70px; }
+  .allprojet .grid-container {
+    display: grid;
+    margin: auto;
+    gap: 4rem;
+    grid-template-rows: repeat(1, 15fr);
+    grid-template-columns: repeat(3, 15fr);
+    width: 90%;
   }
-
-  .skilltitle {
-    font-size: 70px;
-  }
-
-  .allprojet {
-    .projettitre {
-      font-size: 60px;
-    }
-
-    .grid-container {
-      display: grid;
-      margin: auto;
-      gap: 4rem;
-      grid-template-rows: repeat(1, 15fr);
-      grid-template-columns: repeat(3, 15fr);
-      width: 90%;
-    }
-
-    .projet img {
-      height: 17em;
-    }
-  }
-
-  .contact {
-    h2 {
-      font-size: 70px;
-    }
-    .contactinfo p {
-      font-size: 30px;
-    }
-  }
-
-  .projects h1 {
-    font-size: 4rem;
-  }
-
-  .projects p {
-    font-size: 1.4rem;
-  }
-
-  .projects img {
-    max-height: 600px;
-  }
+  .projects h1 { font-size: 4rem; }
+  .projects p { font-size: 1.4rem; }
+  .projects img { max-height: 600px; }
 }
