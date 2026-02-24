@@ -1,4 +1,11 @@
-<div class="change">
+<?php
+if (!isset($_SESSION)) session_start();
+if (!isset($_SESSION['user'])) {
+    header("Location: index.php?page=login");
+    exit;
+}
+?>
+<div class="create">
     <h2>Crée un projet</h2>
 
     <form method="POST">
@@ -10,7 +17,6 @@
 
         <p>Image (URL):</p>
         <input type="text" name="image" value="<?= isset($projet['image']) ? htmlspecialchars($projet['image']) : '' ?>" required/>
-
         <p>Description courte:</p>
         <textarea name="short_description" required><?= isset($projet['short_description']) ? htmlspecialchars($projet['short_description']) : '' ?></textarea>
 

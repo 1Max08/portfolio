@@ -6,6 +6,7 @@ const AVAILABLE_ROUTES = [
      'error' => 'ErrorController',
      'about' => 'AboutController',
      'login' => 'LoginController',
+     'logout' => 'LogoutController',
      'board' => 'BoardController',
      'projet' => 'ProjetController',
      'change' => 'ChangeController',

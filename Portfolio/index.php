@@ -38,6 +38,10 @@ switch ($url) {
     case 'login':
         $controller->login();
         break;
+
+    case 'logout':
+        $controller->logout();
+        break;
     
     case 'board':
         $controller->board();

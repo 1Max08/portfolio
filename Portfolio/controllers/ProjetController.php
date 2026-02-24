@@ -1,12 +1,13 @@
 <?php
-
 namespace controllers;
 
-require "repositories/ProjetRepository.php";
+require_once "repositories/ProjetRepository.php";
+require_once "AbstractController.php";
 
 use repositories\ProjetRepository;
 
-class ProjetController {
+class ProjetController extends AbstractController {
+
     private $projetRepository;
 
     public function __construct() {
