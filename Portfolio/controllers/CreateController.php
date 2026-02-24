@@ -7,38 +7,33 @@ require_once "AbstractController.php";
 use repositories\CreateRepository;
 
 class CreateController extends AbstractController {
-
-    private $createRepository;
+    private CreateRepository $createRepository;
 
     public function __construct() {
         $this->createRepository = new CreateRepository();
+        $this->startSession();
+        $this->requireLogin();
     }
 
-    public function create() {
-        $this->requireLogin();
+    public function create(): void {
+        $template = "create/create";
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $titre = $_POST['titre'];
-            $description = $_POST['description'];
-            $image = $_POST['image'];
-            $short_description = $_POST['short_description'];
+            $title = $_POST['titre'] ?? '';
+            $description = $_POST['description'] ?? '';
+            $image = $_POST['image'] ?? '';
+            $shortDescription = $_POST['short_description'] ?? '';
 
-            $result = $this->createRepository->CreateProjet(
-                $titre,
-                $description,
-                $image,
-                $short_description
-            );
+            $success = $this->createRepository->createProjet($title, $description, $image, $shortDescription);
 
-            if ($result) {
+            if ($success) {
                 header("Location: index.php?page=board");
-                exit();
+                exit;
             } else {
                 $error = "Impossible de créer le projet.";
             }
         }
 
-        $template = "create/create";
         require_once "views/layout.phtml";
     }
 }

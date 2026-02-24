@@ -19,7 +19,7 @@ class ChangeRepository {
         return $query->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function UpdateProjet($id, $titre, $description, $image, $short_description) {
+    public function updateProjet($id, $titre, $description, $image, $short_description) {
         $query = $this->pdo->prepare('UPDATE projet SET titre = ?, description = ?, image = ?, short_description = ? WHERE id = ?');
         $query->execute([$titre, $description, $image, $short_description, $id]);
         return $query->rowCount() > 0;

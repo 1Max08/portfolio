@@ -9,19 +9,17 @@ use repositories\BoardRepository;
 use repositories\MessageRepository;
 
 class BoardController extends AbstractController {
-
-    private $boardRepository;
-
-    public function logoutUser() {
-        $this->logout();
-    }
+    private BoardRepository $boardRepository;
 
     public function __construct() {
         $this->boardRepository = new BoardRepository();
+        $this->startSession();
+        $this->requireLogin();
     }
 
-    public function board() {
-        $this->requireLogin();
+    public function board(): void {
+        $profil = $this->boardRepository->getProfil();
+        $projects = $this->boardRepository->getProjet();
 
         $messageRepo = new MessageRepository();
 
@@ -37,15 +35,14 @@ class BoardController extends AbstractController {
             exit;
         }
 
-        $profil = $this->boardRepository->getProfil();
-        $projet = $this->boardRepository->getProjet();
-        $messages = $messageRepo->getAll();
+        if (isset($_GET['deleteProject'])) {
+            $this->boardRepository->deleteProjet((int)$_GET['deleteProject']);
+            header("Location: index.php?page=board");
+            exit;
+        }
 
+        $messages = $messageRepo->getAll();
         $template = "board/board";
         require_once "views/layout.phtml";
-    }
-
-    public function getProfil(): array {
-        return $this->boardRepository->getProfil();
     }
 }

@@ -19,7 +19,7 @@ class CreateRepository {
         return $query->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function CreateProjet($titre, $description, $image, $short_description) {
+    public function createProjet($titre, $description, $image, $short_description) {
         $query = $this->pdo->prepare('INSERT INTO projet (titre, description, image, short_description) VALUES (?, ?, ?, ?)');
         $query->execute([$titre, $description, $image, $short_description]);
 

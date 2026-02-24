@@ -7,20 +7,20 @@ if (!isset($_SESSION['user'])) {
 ?>
 
 <div class="create">
-    <h2>Crée un projet</h2>
+    <h2>Créer un projet</h2>
 
     <form method="POST">
         <p>Titre:</p>
-        <input type="text" name="titre" value="<?= isset($projet['titre']) ? htmlspecialchars($projet['titre']) : '' ?>" required/>
+        <input type="text" name="titre" value="<?= htmlspecialchars($_POST['titre'] ?? '') ?>" required/>
 
         <p>Description:</p>
-        <textarea name="description" required><?= isset($projet['description']) ? htmlspecialchars($projet['description']) : '' ?></textarea>
+        <textarea name="description" required><?= htmlspecialchars($_POST['description'] ?? '') ?></textarea>
 
         <p>Image (URL):</p>
-        <input type="text" name="image" value="<?= isset($projet['image']) ? htmlspecialchars($projet['image']) : '' ?>" required/>
+        <input type="text" name="image" value="<?= htmlspecialchars($_POST['image'] ?? '') ?>" required/>
 
         <p>Description courte:</p>
-        <textarea name="short_description" required><?= isset($projet['short_description']) ? htmlspecialchars($projet['short_description']) : '' ?></textarea>
+        <textarea name="shortDescription" required><?= htmlspecialchars($_POST['shortDescription'] ?? '') ?></textarea>
 
         <button type="submit">Créer</button>
     </form>

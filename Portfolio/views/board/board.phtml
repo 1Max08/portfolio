@@ -1,20 +1,31 @@
+<?php
+if (!isset($_SESSION)) session_start();
+if (!isset($_SESSION['user'])) {
+    header("Location: index.php?page=login");
+    exit;
+}
+?>
+
 <div class="dashboard">
-    <h2>Édite le profil</h2>
+    <h2>Éditer le profil</h2>
+
     <form method="POST">
-        <p>Titre:</p>
-        <input type="text" id="introduction" name="introduction" value="<?= htmlspecialchars($profil['introduction'] ?? '') ?>" />
+        <p>Introduction:</p>
+        <input type="text" name="introduction" value="<?= htmlspecialchars($profil['introduction'] ?? '') ?>" />
+
         <p>Description:</p>
-        <textarea id="description" name="description"><?= htmlspecialchars($profil['description'] ?? '') ?></textarea>
+        <textarea name="description"><?= htmlspecialchars($profil['description'] ?? '') ?></textarea>
+
         <button type="submit">Changer</button>
     </form>
 
-    <?php foreach ($projet as $projets): ?>
-        <h2 class="title"><?= htmlspecialchars($projets['titre']) ?></h2>
+    <?php foreach ($projects as $project): ?>
+        <h2 class="title"><?= htmlspecialchars($project['titre']) ?></h2>
         <div class="dashboard-buttons">
-            <a href="index.php?page=change&id=<?= $projets['id'] ?>">
+            <a href="index.php?page=change&id=<?= $project['id'] ?>">
                 <button type="button">Changer</button>
             </a>
-            <a href="index.php?page=board&deleteProject=<?= $projets['id'] ?>" onclick="return confirm('Voulez-vous vraiment supprimer ce projet ?');">
+            <a href="index.php?page=board&deleteProject=<?= $project['id'] ?>" onclick="return confirm('Voulez-vous vraiment supprimer ce projet ?');">
                 <button type="button">Supprimer</button>
             </a>
         </div>
@@ -27,9 +38,6 @@
         <a href="index.php?page=about">
             <button type="button">Retourner</button>
         </a>
-    </div>
-
-    <div class="dashboard-buttons">
         <a href="index.php?page=logout">
             <button type="button">Déconnexion</button>
         </a>
@@ -41,23 +49,22 @@
         <p>Aucun message pour le moment.</p>
     <?php else: ?>
         <?php foreach ($messages as $message): ?>
-            <div class="message <?= $message['is_read'] ? 'read' : 'unread' ?>">
+            <div class="message <?= $message['isRead'] ? 'read' : 'unread' ?>">
                 <p><strong>Nom :</strong> <?= htmlspecialchars($message['name']) ?></p>
                 <p><strong>Email :</strong> <?= htmlspecialchars($message['email']) ?></p>
                 <?php if (!empty($message['subject'])): ?>
                     <p><strong>Sujet :</strong> <?= htmlspecialchars($message['subject']) ?></p>
                 <?php endif; ?>
                 <p><?= nl2br(htmlspecialchars($message['message'])) ?></p>
-                <small><?= htmlspecialchars($message['created_at']) ?></small>
+                <small><?= htmlspecialchars($message['createdAt']) ?></small>
 
                 <div class="dashboard-buttons">
-                    <?php if (!$message['is_read']): ?>
+                    <?php if (!$message['isRead']): ?>
                         <a href="index.php?page=board&readMessage=<?= $message['id'] ?>">
                             <button type="button">Marquer comme lu</button>
                         </a>
                     <?php endif; ?>
-                    <a href="index.php?page=board&deleteMessage=<?= $message['id'] ?>"
-                       onclick="return confirm('Supprimer ce message ?');">
+                    <a href="index.php?page=board&deleteMessage=<?= $message['id'] ?>" onclick="return confirm('Supprimer ce message ?');">
                         <button type="button">Supprimer</button>
                     </a>
                 </div>
