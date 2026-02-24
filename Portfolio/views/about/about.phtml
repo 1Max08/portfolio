@@ -1,65 +1,71 @@
+<?php
+if (!isset($_SESSION)) session_start();
+?>
+
 <section class="introduction">
     <img src="assets/img/profil.png" alt="profil" class="profil">
     <div class="text">
-        <h2><?= htmlspecialchars($profil['introduction']) ?></h2>
-        <p>"<?= htmlspecialchars($profil['description']) ?>"</p>
+        <h2><?= htmlspecialchars($profil->introduction ?? '') ?></h2>
+        <p>"<?= htmlspecialchars($profil->description ?? '') ?>"</p>
         <a href="assets/files/CV_MaxPham.pdf" class="btn-cv" download>Télécharger mon CV</a>
     </div>
 </section>
+
 <section class="allprojet">
     <h2 class="projettitre">Mes Projets</h2>
     <div class="grid-container">
-
-<?php foreach ($projet as $projets): ?>
-    <article class="projet">
-        <a href="index.php?page=projet&id=<?= $projets['id'] ?>">
-            <img src="assets/img/<?= htmlspecialchars($projets['image']) ?>" alt="image projet">
-            <div class="projetdesc">
-                <h2 class="title"><?= htmlspecialchars($projets['titre']) ?></h2>
-                <p class="desc"><?= htmlspecialchars($projets['short_description']) ?></p>
-            </div>
-        </a>
-    </article>
-<?php endforeach; ?>
-        </article>
+        <?php if (!empty($projet)): ?>
+            <?php foreach ($projet as $p): ?>
+                <article class="projet">
+                    <a href="index.php?page=projet&id=<?= $p->id ?>">
+                        <img src="assets/img/<?= htmlspecialchars($p->image ?? '') ?>" alt="image projet">
+                        <div class="projetdesc">
+                            <h2 class="title"><?= htmlspecialchars($p->title ?? '') ?></h2>
+                            <p class="desc"><?= htmlspecialchars($p->short_description ?? '') ?></p>
+                        </div>
+                    </a>
+                </article>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Aucun projet à afficher.</p>
+        <?php endif; ?>
     </div>
 </section>
-<section>
-<section>
-    <article class="contact">
-        <h2>Contactez-moi</h2>
 
-        <?php if (!empty($_SESSION['flash'])): ?>
-            <div class="flash <?= htmlspecialchars($_SESSION['flash']['type']) ?>">
-                <?= htmlspecialchars($_SESSION['flash']['message']) ?>
-            </div>
-            <?php unset($_SESSION['flash']); ?>
-        <?php endif; ?>
+<section class="contact">
+    <h2>Contactez-moi</h2>
 
-        <form method="post" action="index.php?page=about" class="contact-form">
-            <label>
-                Nom
-                <input type="text" name="contact_name" required value="<?= isset($_POST['contact_name']) ? htmlspecialchars($_POST['contact_name']) : '' ?>">
-            </label>
-            <label>
-                Email
-                <input type="email" name="contact_email" required value="<?= isset($_POST['contact_email']) ? htmlspecialchars($_POST['contact_email']) : '' ?>">
-            </label>
-            <label>
-                Sujet
-                <input type="text" name="contact_subject" value="<?= isset($_POST['contact_subject']) ? htmlspecialchars($_POST['contact_subject']) : '' ?>">
-            </label>
-            <label>
-                Message
-                <textarea name="contact_message" required><?= isset($_POST['contact_message']) ? htmlspecialchars($_POST['contact_message']) : '' ?></textarea>
-            </label>
-            <button type="submit" name="contact_submit" class="btn-submit">Envoyer</button>
-        </form>
-    </article>
-    <article class="contact">
-        <div class="contactinfo">
-            <p>max.pham@3wacademy.fr</p>
-            <p>0769950308</p>
+    <?php if (!empty($_SESSION['flash'])): ?>
+        <div class="flash <?= htmlspecialchars($_SESSION['flash']['type']) ?>">
+            <?= htmlspecialchars($_SESSION['flash']['message']) ?>
         </div>
-    </article>
+        <?php unset($_SESSION['flash']); ?>
+    <?php endif; ?>
+
+    <form method="post" action="index.php?page=about" class="contact-form">
+        <label>
+            Nom
+            <input type="text" name="contact_name" required value="<?= htmlspecialchars($_POST['contact_name'] ?? '') ?>">
+        </label>
+        <label>
+            Email
+            <input type="email" name="contact_email" required value="<?= htmlspecialchars($_POST['contact_email'] ?? '') ?>">
+        </label>
+        <label>
+            Sujet
+            <input type="text" name="contact_subject" value="<?= htmlspecialchars($_POST['contact_subject'] ?? '') ?>">
+        </label>
+        <label>
+            Message
+            <textarea name="contact_message" required><?= htmlspecialchars($_POST['contact_message'] ?? '') ?></textarea>
+        </label>
+        <button type="submit" name="contact_submit" class="btn-submit">Envoyer</button>
+    </form>
+</section>
+
+<section class="contact">
+    <div class="contactinfo">
+        <p>max.pham@3wacademy.fr</p>
+        <p>0769950308</p>
+    </div>
 </section>

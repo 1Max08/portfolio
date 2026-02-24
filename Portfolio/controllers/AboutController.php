@@ -1,13 +1,16 @@
 <?php
-
 namespace controllers;
 
 require "repositories/AboutRepository.php";
+require "models/Project.php";
+require "models/Profil.php";
 
 use repositories\AboutRepository;
+use models\Project;
+use models\Profil;
 
 class AboutController {
-    private $aboutRepository;
+    private AboutRepository $aboutRepository;
 
     public function __construct() {
         session_start();
@@ -15,11 +18,26 @@ class AboutController {
     }
 
     public function about() {
-        $profil = $this->aboutRepository->getProfil();
-        $projet = $this->aboutRepository->getProjet();
+        $profilData = $this->aboutRepository->getProfil();
+        $profil = new Profil(
+            $profilData['id'] ?? 0,
+            $profilData['introduction'] ?? '',
+            $profilData['description'] ?? ''
+        );
+
+        $projectsData = $this->aboutRepository->getProjet();
+        $projet = [];
+        foreach ($projectsData as $p) {
+            $projet[] = new Project(
+                $p['id'],
+                $p['titre'],
+                $p['description'] ?? '',
+                $p['short_description'] ?? '',
+                $p['image'] ?? ''
+            );
+        }
 
         if (isset($_POST['contact_submit'])) {
-
             $name = trim($_POST['contact_name']);
             $email = trim($_POST['contact_email']);
             $subject = trim($_POST['contact_subject']);
@@ -33,7 +51,6 @@ class AboutController {
                     'type' => 'success',
                     'message' => 'Message envoyé avec succès.'
                 ];
-
                 header("Location: index.php?page=about");
                 exit;
             } else {

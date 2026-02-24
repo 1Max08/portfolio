@@ -1,7 +1,7 @@
 <?php
 if (!isset($_SESSION)) session_start();
 if (!isset($_SESSION['user'])) {
-    header("Location: index.php?page=login");
+    header("Location: index.php?page=about");
     exit;
 }
 ?>
@@ -20,7 +20,7 @@ if (!isset($_SESSION['user'])) {
         <input type="text" name="image" value="<?= htmlspecialchars($_POST['image'] ?? '') ?>" required/>
 
         <p>Description courte:</p>
-        <textarea name="shortDescription" required><?= htmlspecialchars($_POST['shortDescription'] ?? '') ?></textarea>
+        <textarea name="short_description" required><?= htmlspecialchars($_POST['short_description'] ?? '') ?></textarea>
 
         <button type="submit">Créer</button>
     </form>

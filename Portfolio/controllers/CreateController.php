@@ -24,7 +24,9 @@ class CreateController extends AbstractController {
             $image = $_POST['image'] ?? '';
             $shortDescription = $_POST['short_description'] ?? '';
 
-            $success = $this->createRepository->createProjet($title, $description, $image, $shortDescription);
+            $success = $this->createRepository->createProjet(
+                $title, $description, $image, $shortDescription
+            );
 
             if ($success) {
                 header("Location: index.php?page=board");

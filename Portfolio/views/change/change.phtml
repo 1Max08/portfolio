@@ -1,7 +1,7 @@
 <?php
 if (!isset($_SESSION)) session_start();
 if (!isset($_SESSION['user'])) {
-    header("Location: index.php?page=login");
+    header("Location: index.php?page=about");
     exit;
 }
 ?>
@@ -11,16 +11,16 @@ if (!isset($_SESSION['user'])) {
 
     <form method="POST">
         <p>Titre:</p>
-        <input type="text" name="titre" value="<?= htmlspecialchars($project['titre'] ?? '') ?>" required/>
+        <input type="text" name="titre" value="<?= htmlspecialchars($project->title ?? '') ?>" required/>
 
         <p>Description:</p>
-        <textarea name="description" required><?= htmlspecialchars($project['description'] ?? '') ?></textarea>
+        <textarea name="description" required><?= htmlspecialchars($project->description ?? '') ?></textarea>
 
         <p>Image (URL):</p>
-        <input type="text" name="image" value="<?= htmlspecialchars($project['image'] ?? '') ?>" required/>
+        <input type="text" name="image" value="<?= htmlspecialchars($project->image ?? '') ?>" required/>
 
         <p>Description courte:</p>
-        <textarea name="shortDescription" required><?= htmlspecialchars($project['shortDescription'] ?? '') ?></textarea>
+        <textarea name="shortDescription" required><?= htmlspecialchars($project->short_description ?? '') ?></textarea>
 
         <button type="submit">Sauvegarder les modifications</button>
         <a href="index.php?page=board">

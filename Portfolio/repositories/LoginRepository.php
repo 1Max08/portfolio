@@ -3,15 +3,32 @@
 namespace repositories;
 
 require_once "services/database.php";
+require_once "models/User.php";
+
+use models\User;
+use PDO;
 
 class LoginRepository {
 
-    public function getUserByEmail(string $email): array|bool {
-        $pdo = getConnexion();
+    private PDO $pdo;
 
-        $query = $pdo->prepare('SELECT * FROM user WHERE email = ?');
+    public function __construct() {
+        $this->pdo = getConnexion();
+    }
+
+    public function getUserByEmail(string $email): ?User {
+        $query = $this->pdo->prepare('SELECT * FROM user WHERE email = ?');
         $query->execute([$email]);
+        $result = $query->fetch(PDO::FETCH_ASSOC);
 
-        return $query->fetch();
+        if (!$result) {
+            return null;
+        }
+
+        return new User(
+            (int) $result['id'],
+            $result['email'],
+            $result['password']
+        );
     }
 }
