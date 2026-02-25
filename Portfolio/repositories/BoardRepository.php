@@ -23,9 +23,6 @@ class BoardRepository extends AbstractRepository {
         );
     }
 
-    /**
-     * Retourne un tableau d'objets Project
-     */
     public function getProjet(): array {
         $query = $this->pdo->prepare('SELECT * FROM projet');
         $query->execute();

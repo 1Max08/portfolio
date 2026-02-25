@@ -3,7 +3,7 @@ if (!isset($_SESSION)) session_start();
 ?>
 
 <section class="introduction">
-    <img src="assets/img/profil.png" alt="profil" class="profil">
+    <img src="assets/img/profil.png" alt="Photo de Max Pham" class="profil">
     <div class="text">
         <h2><?= htmlspecialchars($profil->introduction ?? '') ?></h2>
         <p>"<?= htmlspecialchars($profil->description ?? '') ?>"</p>
@@ -18,7 +18,7 @@ if (!isset($_SESSION)) session_start();
             <?php foreach ($projet as $p): ?>
                 <article class="projet">
                     <a href="index.php?page=projet&id=<?= $p->id ?>">
-                        <img src="assets/img/<?= htmlspecialchars($p->image ?? '') ?>" alt="image projet">
+                        <img src="assets/img/<?= htmlspecialchars($p->image ?? '') ?>" alt="Aperçu du projet <?= htmlspecialchars($p->title ?? '') ?>">
                         <div class="projetdesc">
                             <h2 class="title"><?= htmlspecialchars($p->title ?? '') ?></h2>
                             <p class="desc"><?= htmlspecialchars($p->short_description ?? '') ?></p>

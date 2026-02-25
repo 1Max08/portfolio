@@ -1,11 +1,16 @@
 <div class="projects">
     <?php if ($projet): ?>
-        <h1><?= htmlspecialchars($projet['titre']) ?></h1>
-        <img src="assets/img/<?= htmlspecialchars($projet['image']) ?>" alt="<?= htmlspecialchars($projet['titre']) ?>">
-        <p><?= nl2br(htmlspecialchars($projet['description'])) ?></p>
-    <?php endif; ?>
+        <h1><?= htmlspecialchars($projet->title) ?></h1>
+        <img src="assets/img/<?= htmlspecialchars($projet->image) ?>" alt="<?= htmlspecialchars($projet->title) ?>">
+        <p><?= nl2br(htmlspecialchars($projet->description)) ?></p>
 
-    <a href="index.php?page=about">
-        <button type="button">Retourner</button>
-    </a>
+        <a href="index.php?page=about">
+            <button type="button">Retourner</button>
+        </a>
+    <?php else: ?>
+        <p>Projet introuvable.</p>
+        <a href="index.php?page=about">
+            <button type="button">Retourner</button>
+        </a>
+    <?php endif; ?>
 </div>

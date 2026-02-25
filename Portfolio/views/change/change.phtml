@@ -20,7 +20,7 @@ if (!isset($_SESSION['user'])) {
         <input type="text" name="image" value="<?= htmlspecialchars($project->image ?? '') ?>" required/>
 
         <p>Description courte:</p>
-        <textarea name="shortDescription" required><?= htmlspecialchars($project->short_description ?? '') ?></textarea>
+        <textarea name="short_description" required><?= htmlspecialchars($project->short_description ?? '') ?></textarea>
 
         <button type="submit">Sauvegarder les modifications</button>
         <a href="index.php?page=board">

@@ -21,13 +21,10 @@ class BoardController extends AbstractController {
     }
 
     public function board(): void {
-        // Récupération du profil
         $profil = $this->boardRepository->getProfil();
 
-        // Récupération des projets sous forme de model Project
         $projects = $this->boardRepository->getProjet();
 
-        // Gestion des actions sur les messages
         if (isset($_GET['readMessage'])) {
             $this->messageRepository->markAsRead((int)$_GET['readMessage']);
             header("Location: index.php?page=board");
@@ -40,17 +37,15 @@ class BoardController extends AbstractController {
             exit;
         }
 
-        // Gestion suppression projet
+
         if (isset($_GET['deleteProject'])) {
             $this->boardRepository->deleteProjet((int)$_GET['deleteProject']);
             header("Location: index.php?page=board");
             exit;
         }
 
-        // Récupération des messages sous forme de model Message
         $messages = $this->messageRepository->getAll();
 
-        // Chargement du template
         $template = "board/board";
         require_once "views/layout.phtml";
     }
