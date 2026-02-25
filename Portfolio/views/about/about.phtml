@@ -3,7 +3,7 @@ if (!isset($_SESSION)) session_start();
 ?>
 
 <section class="introduction">
-    <img src="assets/img/profil.png" alt="Photo de Max Pham" class="profil">
+    <img src="assets/img/<?= htmlspecialchars($profil->profil_image ?? '') ?>" alt="Photo de Max Pham" class="profil">
     <div class="text">
         <h2><?= htmlspecialchars($profil->introduction ?? '') ?></h2>
         <p>"<?= htmlspecialchars($profil->description ?? '') ?>"</p>

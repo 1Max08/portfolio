@@ -8,16 +8,19 @@ if (!isset($_SESSION['user'])) {
 
 <div class="dashboard">
     <h2>Éditer le profil</h2>
-
+    
     <form method="POST">
         <p>Introduction:</p>
         <input type="text" name="introduction" value="<?= htmlspecialchars($profil->introduction ?? '') ?>" />
-
+        
         <p>Description:</p>
         <textarea name="description"><?= htmlspecialchars($profil->description ?? '') ?></textarea>
+        
+        <p>Photo de profil (URL):</p>
+        <input type="text" name="photo" value="<?= htmlspecialchars($profil->profil_image ?? '') ?>" />
 
-        <button type="submit">Changer</button>
-    </form>
+    <button type="submit">Changer</button>
+</form>
 
     <?php foreach ($projects as $project): ?>
         <h2 class="title"><?= htmlspecialchars($project->title) ?></h2>

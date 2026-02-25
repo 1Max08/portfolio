@@ -27,11 +27,11 @@ class AboutRepository {
         return new Profil(
             (int)$data['id'],
             $data['introduction'] ?? '',
-            $data['description'] ?? ''
+            $data['description'] ?? '',
+            $data['profil_image'] ?? ''
         );
     }
-
-    // Retourne un tableau d'objets Project
+    
     public function getProjet(): array {
         $query = $this->pdo->prepare('SELECT * FROM projet');
         $query->execute();
