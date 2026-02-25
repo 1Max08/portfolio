@@ -5,6 +5,7 @@ require_once "repositories/ChangeRepository.php";
 require_once "AbstractController.php";
 
 use repositories\ChangeRepository;
+use models\Project;
 
 class ChangeController extends AbstractController {
     private ChangeRepository $changeRepository;
@@ -17,13 +18,17 @@ class ChangeController extends AbstractController {
 
     public function change(): void {
         $template = "change/change";
+        $error = null;
 
+        // Vérification de l'ID du projet
         if (!isset($_GET['id'])) {
             header("Location: index.php?page=board");
             exit;
         }
 
         $id = (int)$_GET['id'];
+
+        // Récupération du projet en objet Project
         $project = $this->changeRepository->getProjetById($id);
 
         if (!$project) {
@@ -32,14 +37,21 @@ class ChangeController extends AbstractController {
             exit;
         }
 
+        // Traitement du formulaire
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $title = $_POST['titre'] ?? '';
-            $description = $_POST['description'] ?? '';
-            $image = $_POST['image'] ?? '';
-            $shortDescription = $_POST['short_description'] ?? '';
+            // Mise à jour de l'objet Project
+            $project->title = $_POST['titre'] ?? '';
+            $project->description = $_POST['description'] ?? '';
+            $project->image = $_POST['image'] ?? '';
+            $project->short_description = $_POST['short_description'] ?? '';
 
+            // Mise à jour en base
             $success = $this->changeRepository->updateProjet(
-                $id, $title, $description, $image, $shortDescription
+                $id,
+                $project->title,
+                $project->description,
+                $project->image,
+                $project->short_description
             );
 
             if ($success) {

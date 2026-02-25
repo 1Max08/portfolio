@@ -1,26 +1,32 @@
-<?php
-if (!isset($_SESSION)) session_start();
-if (!isset($_SESSION['user'])) {
-    header("Location: index.php?page=about");
-    exit;
-}
-?>
+<?php if (!isset($_SESSION)) session_start(); ?>
 
 <div class="change">
     <h2>Modifier le projet</h2>
 
+    <?php if (isset($error)): ?>
+        <div class="error"><?= htmlspecialchars($error) ?></div>
+    <?php endif; ?>
+
     <form method="POST">
-        <p>Titre:</p>
-        <input type="text" name="titre" value="<?= htmlspecialchars($project->title ?? '') ?>" required/>
+        <label>
+            Titre:
+            <input type="text" name="titre" value="<?= htmlspecialchars($project->title ?? '') ?>" required />
+        </label>
 
-        <p>Description:</p>
-        <textarea name="description" required><?= htmlspecialchars($project->description ?? '') ?></textarea>
+        <label>
+            Description:
+            <textarea name="description" required><?= htmlspecialchars($project->description ?? '') ?></textarea>
+        </label>
 
-        <p>Image (URL):</p>
-        <input type="text" name="image" value="<?= htmlspecialchars($project->image ?? '') ?>" required/>
+        <label>
+            Image (URL):
+            <input type="text" name="image" value="<?= htmlspecialchars($project->image ?? '') ?>" required />
+        </label>
 
-        <p>Description courte:</p>
-        <textarea name="short_description" required><?= htmlspecialchars($project->short_description ?? '') ?></textarea>
+        <label>
+            Description courte:
+            <textarea name="short_description" required><?= htmlspecialchars($project->short_description ?? '') ?></textarea>
+        </label>
 
         <button type="submit">Sauvegarder les modifications</button>
         <a href="index.php?page=board">

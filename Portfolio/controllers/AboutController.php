@@ -1,11 +1,13 @@
 <?php
 namespace controllers;
 
-require "repositories/AboutRepository.php";
-require "models/Project.php";
-require "models/Profil.php";
+require_once "repositories/AboutRepository.php";
+require_once "repositories/ContactRepository.php";
+require_once "models/Project.php";
+require_once "models/Profil.php";
 
 use repositories\AboutRepository;
+use repositories\ContactRepository;
 use models\Project;
 use models\Profil;
 
@@ -13,29 +15,15 @@ class AboutController {
     private AboutRepository $aboutRepository;
 
     public function __construct() {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         $this->aboutRepository = new AboutRepository();
     }
 
-    public function about() {
-        $profilData = $this->aboutRepository->getProfil();
-        $profil = new Profil(
-            $profilData['id'] ?? 0,
-            $profilData['introduction'] ?? '',
-            $profilData['description'] ?? ''
-        );
-
-        $projectsData = $this->aboutRepository->getProjet();
-        $projet = [];
-        foreach ($projectsData as $p) {
-            $projet[] = new Project(
-                $p['id'],
-                $p['titre'],
-                $p['description'] ?? '',
-                $p['short_description'] ?? '',
-                $p['image'] ?? ''
-            );
-        }
+    public function about(): void {
+        $profil = $this->aboutRepository->getProfil();
+        $projet = $this->aboutRepository->getProjet();
 
         if (isset($_POST['contact_submit'])) {
             $name = trim($_POST['contact_name']);
@@ -44,7 +32,7 @@ class AboutController {
             $message = trim($_POST['contact_message']);
 
             if ($name && $email && $message) {
-                $contactRepo = new \repositories\ContactRepository();
+                $contactRepo = new ContactRepository();
                 $contactRepo->saveMessage($name, $email, $subject, $message);
 
                 $_SESSION['flash'] = [

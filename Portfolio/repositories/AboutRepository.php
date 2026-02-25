@@ -1,33 +1,53 @@
 <?php
-
 namespace repositories;
 
 require_once "services/database.php";
-require_once "repositories/AbstractRepository.php";
+require_once "models/Project.php";
+require_once "models/Profil.php";
 
-class AboutRepository extends AbstractRepository {
+use models\Project;
+use models\Profil;
 
-    public function getProfil(): array|bool {
-        $pdo = getConnexion();
+class AboutRepository {
 
-        $query = $pdo->prepare('SELECT description, introduction FROM profil WHERE id = 1');
-        $query->execute();
+    private \PDO $pdo;
 
-        $result = $query->fetch(\PDO::FETCH_ASSOC);
-
-        return $result;
+    public function __construct() {
+        $this->pdo = getConnexion();
     }
 
+    // Retourne un objet Profil
+    public function getProfil(): ?Profil {
+        $query = $this->pdo->prepare('SELECT * FROM profil WHERE id = 1');
+        $query->execute();
+        $data = $query->fetch(\PDO::FETCH_ASSOC);
+
+        if (!$data) return null;
+
+        return new Profil(
+            (int)$data['id'],
+            $data['introduction'] ?? '',
+            $data['description'] ?? ''
+        );
+    }
+
+    // Retourne un tableau d'objets Project
     public function getProjet(): array {
         $query = $this->pdo->prepare('SELECT * FROM projet');
         $query->execute();
-        return $query->fetchAll(\PDO::FETCH_ASSOC);
-    }
+        $rows = $query->fetchAll(\PDO::FETCH_ASSOC);
 
-    public function getCategories(): array {
-        $query = $this->pdo->prepare('SELECT * FROM category WHERE id');
-        $query->execute();
-        return $query->fetchAll(\PDO::FETCH_ASSOC);
-    }
+        $projects = [];
+        foreach ($rows as $row) {
+            $projects[] = new Project(
+                (int)$row['id'],
+                $row['titre'] ?? '',
+                $row['description'] ?? '',
+                $row['short_description'] ?? '',
+                $row['image'] ?? ''
+            );
+        }
 
+        return $projects;
+    }
 }

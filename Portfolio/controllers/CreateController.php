@@ -3,8 +3,10 @@ namespace controllers;
 
 require_once "repositories/CreateRepository.php";
 require_once "AbstractController.php";
+require_once "models/Project.php";
 
 use repositories\CreateRepository;
+use models\Project;
 
 class CreateController extends AbstractController {
     private CreateRepository $createRepository;
@@ -17,16 +19,18 @@ class CreateController extends AbstractController {
 
     public function create(): void {
         $template = "create/create";
+        $error = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $title = $_POST['titre'] ?? '';
-            $description = $_POST['description'] ?? '';
-            $image = $_POST['image'] ?? '';
-            $shortDescription = $_POST['short_description'] ?? '';
-
-            $success = $this->createRepository->createProjet(
-                $title, $description, $image, $shortDescription
+            $project = new Project(
+                null,
+                $_POST['titre'] ?? '',
+                $_POST['description'] ?? '',
+                $_POST['short_description'] ?? '',
+                $_POST['image'] ?? ''
             );
+
+            $success = $this->createRepository->createProjet($project);
 
             if ($success) {
                 header("Location: index.php?page=board");

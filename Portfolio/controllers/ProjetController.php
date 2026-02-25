@@ -22,17 +22,9 @@ class ProjetController extends AbstractController {
 
         if (isset($_GET['id'])) {
             $id = intval($_GET['id']);
-            $projetData = $this->projetRepository->getProjetById($id);
+            $projet = $this->projetRepository->getProjetById($id);
 
-            if ($projetData) {
-                $projet = new Project(
-                    $projetData['id'],
-                    $projetData['titre'],
-                    $projetData['description'] ?? '',
-                    $projetData['short_description'] ?? '',
-                    $projetData['image'] ?? ''
-                );
-            } else {
+            if (!$projet) {
                 $error = "Projet introuvable.";
             }
         } else {
