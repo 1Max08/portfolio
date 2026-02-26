@@ -7,3 +7,7 @@ projet: id, titre, description,image ,short_description, #id_category
 user: id, email, password
 
 contact_message: id, name, email, subject, message, created_at, is_read
+
+competence: id, level, name
+
+experience: id, titre, description,image ,short_description
