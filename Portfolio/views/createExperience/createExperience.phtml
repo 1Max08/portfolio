@@ -1,33 +1,41 @@
 <?php if (!isset($_SESSION)) session_start(); ?>
 
+<!-- CONTENEUR PRINCIPAL DE LA PAGE DE CRÉATION D'EXPÉRIENCE -->
 <div class="change">
     <h2>Créer une expérience</h2>
 
+    <!-- AFFICHAGE DES ERREURS -->
     <?php if (isset($error)): ?>
         <div class="error"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
 
+    <!-- FORMULAIRE DE CRÉATION -->
     <form method="POST">
+        <!-- Champ Titre -->
         <label>
             Titre:
             <input type="text" name="title" required />
         </label>
 
+        <!-- Champ Courte description -->
         <label>
             Courte description:
             <input type="text" name="short_description" required />
         </label>
 
+        <!-- Champ Description complète -->
         <label>
             Description complète:
             <textarea name="description" required></textarea>
         </label>
 
+        <!-- Champ Image -->
         <label>
             Image (nom de fichier):
             <input type="text" name="image" />
         </label>
 
+        <!-- Boutons d'action -->
         <button type="submit">Créer</button>
         <a href="index.php?page=board">
             <button type="button">Annuler</button>

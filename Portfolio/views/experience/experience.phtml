@@ -1,15 +1,28 @@
-<?php if (!isset($_SESSION)) session_start(); ?>
+<?php
+// Démarre la session si elle n'est pas déjà active
+if (!isset($_SESSION)) session_start();
+?>
 
+<!-- CONTENEUR PRINCIPAL DE LA PAGE D'EXPÉRIENCE -->
 <div class="projects">
+
     <?php if ($experience): ?>
+        <!-- AFFICHAGE DE L'EXPÉRIENCE -->
         <h1><?= htmlspecialchars($experience->title) ?></h1>
-        <img src="assets/img/<?= htmlspecialchars($experience->image) ?>" alt="<?= htmlspecialchars($experience->title) ?>">
+
+        <!-- IMAGE DE L'EXPÉRIENCE -->
+        <img src="assets/img/<?= htmlspecialchars($experience->image) ?>" 
+             alt="<?= htmlspecialchars($experience->title) ?>">
+
+        <!-- DESCRIPTION COMPLÈTE -->
         <p><?= nl2br(htmlspecialchars($experience->description)) ?></p>
 
+        <!-- BOUTON DE RETOUR -->
         <a href="index.php?page=about">
             <button type="button">Retourner</button>
         </a>
     <?php else: ?>
+        <!-- CAS OÙ L'EXPÉRIENCE N'EST PAS TROUVÉE -->
         <p>Experience introuvable.</p>
         <a href="index.php?page=about">
             <button type="button">Retourner</button>

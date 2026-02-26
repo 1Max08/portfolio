@@ -1,7 +1,8 @@
 <?php
 namespace models;
 
-class Message {
+class Message
+{
     public int $id;
     public string $name;
     public string $email;

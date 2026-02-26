@@ -1,13 +1,23 @@
 <div class="projects">
+
     <?php if ($projet): ?>
+        <!-- AFFICHAGE DU TITRE DU PROJET -->
         <h1><?= htmlspecialchars($projet->title) ?></h1>
-        <img src="assets/img/<?= htmlspecialchars($projet->image) ?>" alt="<?= htmlspecialchars($projet->title) ?>">
+
+        <!-- IMAGE DU PROJET -->
+        <img src="assets/img/<?= htmlspecialchars($projet->image) ?>" 
+             alt="<?= htmlspecialchars($projet->title) ?>">
+
+        <!-- DESCRIPTION COMPLÈTE DU PROJET -->
         <p><?= nl2br(htmlspecialchars($projet->description)) ?></p>
 
+        <!-- BOUTON DE RETOUR -->
         <a href="index.php?page=about">
             <button type="button">Retourner</button>
         </a>
+
     <?php else: ?>
+        <!-- CAS OÙ LE PROJET N'EST PAS TROUVÉ -->
         <p>Projet introuvable.</p>
         <a href="index.php?page=about">
             <button type="button">Retourner</button>

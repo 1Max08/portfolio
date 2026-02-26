@@ -6,15 +6,45 @@ require_once "models/Projet.php";
 
 use models\Projet;
 
-class CreateRepository {
-
+/**
+ * Repository responsable de la création et récupération des projets.
+ *
+ * Fournit des méthodes pour :
+ * - Récupérer un projet par son identifiant
+ * - Créer un nouveau projet
+ */
+class CreateRepository
+{
+    /**
+     * Instance PDO pour accéder à la base de données.
+     *
+     * @var \PDO
+     */
     private \PDO $pdo;
 
-    public function __construct() {
+    /**
+     * Constructeur du repository.
+     *
+     * Initialise la connexion PDO via la fonction getConnexion().
+     */
+    public function __construct()
+    {
         $this->pdo = getConnexion();
     }
 
-    public function getProjetById(int $id): ?Projet {
+    /**
+     * Récupère un projet par son identifiant.
+     *
+     * Fonctionnement :
+     * - Prépare et exécute une requête SQL pour récupérer le projet
+     * - Retourne un objet Projet si trouvé
+     * - Retourne null si aucun résultat
+     *
+     * @param int $id Identifiant du projet
+     * @return Projet|null Objet Projet ou null si non trouvé
+     */
+    public function getProjetById(int $id): ?Projet
+    {
         $query = $this->pdo->prepare('SELECT * FROM projet WHERE id = :id');
         $query->bindParam(':id', $id, \PDO::PARAM_INT);
         $query->execute();
@@ -25,7 +55,7 @@ class CreateRepository {
         }
 
         return new Projet(
-            (int)$data['id'],
+            (int) $data['id'],
             $data['titre'] ?? '',
             $data['description'] ?? '',
             $data['short_description'] ?? '',
@@ -33,7 +63,14 @@ class CreateRepository {
         );
     }
 
-    public function createProjet(Projet $project): bool {
+    /**
+     * Crée un nouveau projet en base de données.
+     *
+     * @param Projet $project Objet Projet contenant les informations à insérer
+     * @return bool Succès ou échec de l'insertion
+     */
+    public function createProjet(Projet $project): bool
+    {
         $query = $this->pdo->prepare(
             'INSERT INTO projet (titre, description, image, short_description) VALUES (?, ?, ?, ?)'
         );

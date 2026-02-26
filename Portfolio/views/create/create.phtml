@@ -1,30 +1,42 @@
 <?php
+// Démarre la session si elle n'est pas déjà active
 if (!isset($_SESSION)) session_start();
+
+// Vérifie si l'utilisateur est connecté
+// Si ce n'est pas le cas, redirige vers la page "about"
 if (!isset($_SESSION['user'])) {
     header("Location: index.php?page=about");
     exit;
 }
 ?>
 
+<!-- CONTENEUR PRINCIPAL DE LA PAGE DE CRÉATION -->
 <div class="create">
     <h2>Créer un projet</h2>
 
+    <!-- FORMULAIRE DE CRÉATION -->
     <form method="POST">
+        <!-- Champ Titre -->
         <p>Titre:</p>
-        <input type="text" name="titre" value="<?= htmlspecialchars($_POST['titre'] ?? '') ?>" required/>
+        <input type="text" name="titre" value="<?= htmlspecialchars($_POST['titre'] ?? '') ?>" required />
 
+        <!-- Champ Description complète -->
         <p>Description:</p>
         <textarea name="description" required><?= htmlspecialchars($_POST['description'] ?? '') ?></textarea>
 
+        <!-- Champ Image (URL) -->
         <p>Image (URL):</p>
-        <input type="text" name="image" value="<?= htmlspecialchars($_POST['image'] ?? '') ?>" required/>
+        <input type="text" name="image" value="<?= htmlspecialchars($_POST['image'] ?? '') ?>" required />
 
+        <!-- Champ Description courte -->
         <p>Description courte:</p>
         <textarea name="short_description" required><?= htmlspecialchars($_POST['short_description'] ?? '') ?></textarea>
 
+        <!-- Bouton de soumission -->
         <button type="submit">Créer</button>
     </form>
 
+    <!-- Bouton Retour -->
     <a href="index.php?page=board">
         <button type="button">Retourner</button>
     </a>

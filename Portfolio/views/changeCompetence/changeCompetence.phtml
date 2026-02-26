@@ -1,28 +1,44 @@
 <?php if (!isset($_SESSION)) session_start(); ?>
 
+<!-- CONTENEUR PRINCIPAL DE LA PAGE DE MODIFICATION -->
 <div class="change">
-    <h2>Modifier la compétence</h2>
+    <h2>Modifier le projet</h2>
 
+    <!-- AFFICHAGE DES ERREURS -->
     <?php if (isset($error)): ?>
-        <div class="error"><?= htmlspecialchars($error) ?></div>
+    <div class="error"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
 
-    <?php if ($competence): ?>
+    <!-- FORMULAIRE DE MODIFICATION -->
     <form method="POST">
+        <!-- Champ Titre -->
         <label>
-            Nom:
-            <input type="text" name="name" value="<?= htmlspecialchars($competence->name) ?>" required />
+            Titre:
+            <input type="text" name="titre" value="<?= htmlspecialchars($project->title ?? '') ?>" required />
         </label>
 
+        <!-- Champ Description complète -->
         <label>
-            Niveau:
-            <input type="text" name="level" value="<?= htmlspecialchars($competence->level) ?>" required />
+            Description:
+            <textarea name="description" required><?= htmlspecialchars($project->description ?? '') ?></textarea>
         </label>
 
-        <button type="submit">Sauvegarder</button>
+        <!-- Champ Image (URL) -->
+        <label>
+            Image (URL):
+            <input type="text" name="image" value="<?= htmlspecialchars($project->image ?? '') ?>" required />
+        </label>
+
+        <!-- Champ Description courte -->
+        <label>
+            Description courte:
+            <textarea name="short_description" required><?= htmlspecialchars($project->short_description ?? '') ?></textarea>
+        </label>
+
+        <!-- Boutons d'action -->
+        <button type="submit">Sauvegarder les modifications</button>
         <a href="index.php?page=board">
             <button type="button">Retourner</button>
         </a>
     </form>
-    <?php endif; ?>
 </div>
