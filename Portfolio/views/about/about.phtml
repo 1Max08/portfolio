@@ -11,6 +11,47 @@ if (!isset($_SESSION)) session_start();
     </div>
 </section>
 
+<section class="competences">
+    <h2>Mes Compétences</h2>
+
+    <?php if (!empty($competences)): ?>
+        <div class="competence-grid">
+            <?php foreach ($competences as $comp): ?>
+                <div class="competence-card">
+                    <h3>
+                        <?= htmlspecialchars($comp->name ?? $comp['name'] ?? '') ?>
+                    </h3>
+                        <p>Niveau : <?= htmlspecialchars($comp->level ?? $comp['level'] ?? '') ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php else: ?>
+        <p>Aucune compétence à afficher pour le moment.</p>
+    <?php endif; ?>
+</section>
+
+<section class="experiences">
+    <h2 class="experiencetitre">Mes Expériences</h2>
+
+    <?php if (!empty($experiences)): ?>
+        <div class="grid-container">
+            <?php foreach ($experiences as $exp): ?>
+                <article class="experience">
+                    <a href="index.php?page=experience&id=<?= $exp->id ?>">
+                        <img src="assets/img/<?= htmlspecialchars($exp->image ?? '') ?>" alt="Aperçu de <?= htmlspecialchars($exp->title ?? '') ?>">
+                        <div class="experiencedesc">
+                            <h2 class="title"><?= htmlspecialchars($exp->title ?? '') ?></h2>
+                            <p class="desc"><?= htmlspecialchars($exp->short_description ?? '') ?></p>
+                        </div>
+                    </a>
+                </article>
+            <?php endforeach; ?>
+        </div>
+    <?php else: ?>
+        <p>Aucune expérience à afficher.</p>
+    <?php endif; ?>
+</section>
+
 <section class="allprojet">
     <h2 class="projettitre">Mes Projets</h2>
     <div class="grid-container">

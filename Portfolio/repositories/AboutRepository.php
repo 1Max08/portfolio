@@ -2,10 +2,10 @@
 namespace repositories;
 
 require_once "services/database.php";
-require_once "models/Project.php";
+require_once "models/Projet.php";
 require_once "models/Profil.php";
 
-use models\Project;
+use models\Projet;
 use models\Profil;
 
 class AboutRepository {
@@ -38,7 +38,7 @@ class AboutRepository {
 
         $projects = [];
         foreach ($rows as $row) {
-            $projects[] = new Project(
+            $projects[] = new Projet(
                 (int)$row['id'],
                 $row['titre'] ?? '',
                 $row['description'] ?? '',

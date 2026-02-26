@@ -44,8 +44,24 @@ switch ($url) {
         $controller->projet();
         break;
 
+    case 'experience':
+        $controller->experience();
+        break;
+
+    case 'createExperience':
+        $controller->createExperience();
+        break;
+
+    case 'changeExperience':
+        $controller->changeExperience();
+        break;
+
     case 'change':
         $controller->change();
+        break;
+
+    case 'changeCompetence':
+        $controller->changeCompetence();
         break;
 
     case 'create':

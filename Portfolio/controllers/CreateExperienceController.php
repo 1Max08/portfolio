@@ -1,42 +1,42 @@
 <?php
 namespace controllers;
 
-require_once "repositories/CreateRepository.php";
+require_once "repositories/ExperienceRepository.php";
 require_once "AbstractController.php";
-require_once "models/Projet.php";
+require_once "models/Experience.php";
 
-use repositories\CreateRepository;
-use models\Projet;
+use repositories\ExperienceRepository;
+use models\Experience;
 
-class CreateController extends AbstractController {
-    private CreateRepository $createRepository;
+class CreateExperienceController extends AbstractController {
+    private ExperienceRepository $repo;
 
     public function __construct() {
-        $this->createRepository = new CreateRepository();
+        $this->repo = new ExperienceRepository();
         $this->startSession();
         $this->requireLogin();
     }
 
-    public function create(): void {
-        $template = "create/create";
+    public function createExperience(): void {
+        $template = "createExperience/createExperience";
         $error = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $project = new Projet(
+            $experience = new Experience(
                 null,
-                $_POST['titre'] ?? '',
+                $_POST['title'] ?? '',
                 $_POST['description'] ?? '',
                 $_POST['short_description'] ?? '',
                 $_POST['image'] ?? ''
             );
 
-            $success = $this->createRepository->createProjet($project);
+            $success = $this->repo->createExperience($experience);
 
             if ($success) {
                 header("Location: index.php?page=board");
                 exit;
             } else {
-                $error = "Impossible de créer le projet.";
+                $error = "Impossible de créer l'expérience.";
             }
         }
 

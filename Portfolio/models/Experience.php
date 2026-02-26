@@ -1,7 +1,7 @@
 <?php
 namespace models;
 
-class Project {
+class Experience {
     public ?int $id;
     public string $title;
     public string $description;

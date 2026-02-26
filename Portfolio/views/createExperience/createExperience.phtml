@@ -1,0 +1,36 @@
+<?php if (!isset($_SESSION)) session_start(); ?>
+
+<div class="change">
+    <h2>Créer une expérience</h2>
+
+    <?php if (isset($error)): ?>
+        <div class="error"><?= htmlspecialchars($error) ?></div>
+    <?php endif; ?>
+
+    <form method="POST">
+        <label>
+            Titre:
+            <input type="text" name="title" required />
+        </label>
+
+        <label>
+            Courte description:
+            <input type="text" name="short_description" required />
+        </label>
+
+        <label>
+            Description complète:
+            <textarea name="description" required></textarea>
+        </label>
+
+        <label>
+            Image (nom de fichier):
+            <input type="text" name="image" />
+        </label>
+
+        <button type="submit">Créer</button>
+        <a href="index.php?page=board">
+            <button type="button">Annuler</button>
+        </a>
+    </form>
+</div>

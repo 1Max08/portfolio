@@ -1,0 +1,18 @@
+<?php if (!isset($_SESSION)) session_start(); ?>
+
+<div class="projects">
+    <?php if ($experience): ?>
+        <h1><?= htmlspecialchars($experience->title) ?></h1>
+        <img src="assets/img/<?= htmlspecialchars($experience->image) ?>" alt="<?= htmlspecialchars($experience->title) ?>">
+        <p><?= nl2br(htmlspecialchars($experience->description)) ?></p>
+
+        <a href="index.php?page=about">
+            <button type="button">Retourner</button>
+        </a>
+    <?php else: ?>
+        <p>Experience introuvable.</p>
+        <a href="index.php?page=about">
+            <button type="button">Retourner</button>
+        </a>
+    <?php endif; ?>
+</div>

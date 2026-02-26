@@ -3,9 +3,9 @@
 namespace repositories;
 
 require_once "services/database.php";
-require_once "models/Project.php";
+require_once "models/Projet.php";
 
-use models\Project;
+use models\Projet;
 
 class ChangeRepository {
 
@@ -15,7 +15,7 @@ class ChangeRepository {
         $this->pdo = getConnexion();
     }
 
-    public function getProjetById(int $id): ?Project {
+    public function getProjetById(int $id): ?Projet {
         $query = $this->pdo->prepare(
             'SELECT * FROM projet WHERE id = :id'
         );
@@ -28,7 +28,7 @@ class ChangeRepository {
             return null;
         }
 
-        return new Project(
+        return new Projet(
             $data['id'],
             $data['titre'],
             $data['description'],

@@ -12,27 +12,87 @@ if (!isset($_SESSION['user'])) {
     <form method="POST">
         <p>Introduction:</p>
         <input type="text" name="introduction" value="<?= htmlspecialchars($profil->introduction ?? '') ?>" />
-        
+    
         <p>Description:</p>
         <textarea name="description"><?= htmlspecialchars($profil->description ?? '') ?></textarea>
-        
+    
         <p>Photo de profil (URL):</p>
         <input type="text" name="profil_image" value="<?= htmlspecialchars($profil->profil_image ?? '') ?>" />
-
-        <button type="submit">Changer</button>
+        
+        <button type="submit" name="updateProfil">Changer</button>
     </form>
 
-    <?php foreach ($projects as $project): ?>
-        <h2 class="title"><?= htmlspecialchars($project->title) ?></h2>
-        <div class="dashboard-buttons">
-            <a href="index.php?page=change&id=<?= $project->id ?>">
-                <button type="button">Changer</button>
-            </a>
-            <a href="index.php?page=board&deleteProject=<?= $project->id ?>" onclick="return confirm('Voulez-vous vraiment supprimer ce projet ?');">
-                <button type="button">Supprimer</button>
-            </a>
-        </div>
-    <?php endforeach; ?>
+<h2>Compétences</h2>
+
+<!-- Ajouter compétence -->
+<form method="POST">
+    <h3>Ajouter une compétence</h3>
+
+    <p>Nom</p>
+    <input type="text" name="competence_name" required>
+
+    <p>Niveau</p>
+    <input type="text" name="competence_level" required>
+
+    <button type="submit" name="addCompetence">
+        Ajouter
+    </button>
+</form>
+
+<?php if (!empty($competences)): ?>
+    <ul>
+        <?php foreach ($competences as $comp): ?>
+            <li>
+                <?= htmlspecialchars($comp->name) ?>
+                (<?= htmlspecialchars($comp->level) ?>)
+
+                <a href="index.php?page=changeCompetence&id=<?= $comp->id ?>">
+                    <button type="button">Changer</button>
+                </a>
+
+                <a href="index.php?page=board&deleteCompetence=<?= $comp->id ?>" onclick="return confirm('Supprimer cette compétence ?');">
+                    <button type="button">Supprimer</button>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php else: ?>
+    <p>Aucune compétence enregistrée.</p>
+<?php endif; ?>
+
+<?php if (isset($competenceToEdit) && $competenceToEdit): ?>
+    <h3>Modifier la compétence</h3>
+
+    <form method="POST">
+        <input type="hidden" name="competence_id"
+               value="<?= $competenceToEdit->id ?>">
+
+        <p>Nom</p>
+        <input type="text" name="competence_name"
+               value="<?= htmlspecialchars($competenceToEdit->name) ?>" required>
+
+        <p>Niveau</p>
+        <input type="text" name="competence_level"
+               value="<?= htmlspecialchars($competenceToEdit->level) ?>" required>
+
+        <button type="submit" name="updateCompetence">
+            Mettre à jour
+        </button>
+    </form>
+<?php endif; ?>
+        
+        <?php foreach ($projects as $project): ?>
+            <h2 class="title"><?= htmlspecialchars($project->title) ?></h2>
+            <div class="dashboard-buttons">
+                <a href="index.php?page=change&id=<?= $project->id ?>">
+                    <button type="button">Changer</button>
+                </a>
+                <a href="index.php?page=board&deleteProject=<?= $project->id ?>" onclick="return confirm('Voulez-vous vraiment supprimer ce projet ?');">
+                    <button type="button">Supprimer</button>
+                </a>
+            </div>
+        <?php endforeach; ?>
+
 
     <div class="dashboard-buttons">
         <a href="index.php?page=create">
@@ -41,10 +101,31 @@ if (!isset($_SESSION['user'])) {
         <a href="index.php?page=about">
             <button type="button">Retourner</button>
         </a>
-        <a href="index.php?page=logout">
-            <button type="button">Déconnexion</button>
-        </a>
     </div>
+    
+    <h2>Experiences</h2>
+        <?php if (!empty($experiences)): ?>
+        <?php foreach ($experiences as $exp): ?>
+            <div class="experience">
+                <h3><?= htmlspecialchars($exp->title) ?></h3>
+                <p><?= htmlspecialchars($exp->short_description) ?></p>
+                <div class="dashboard-buttons">
+                    <a href="index.php?page=changeExperience&id=<?= $exp->id ?>">
+                        <button type="button">Changer</button>
+                    </a>
+                    <a href="index.php?page=board&deleteExperience=<?= $exp->id ?>" onclick="return confirm('Supprimer cette expérience ?');">
+                        <button type="button">Supprimer</button>
+                    </a>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>Aucune expérience enregistrée.</p>
+    <?php endif; ?>
+        <div class="dashboard-buttons">
+        <a href="index.php?page=createExperience"><button type="button">Créer une expérience</button></a>
+    </div>
+
 
     <h2>Messages reçus</h2>
 
@@ -74,4 +155,9 @@ if (!isset($_SESSION['user'])) {
             </div>
         <?php endforeach; ?>
     <?php endif; ?>
+    <div class="dashboard-buttons">
+            <a href="index.php?page=logout">
+            <button type="button">Déconnexion</button>
+        </a>
+    </div>
 </div>

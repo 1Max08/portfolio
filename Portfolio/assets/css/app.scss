@@ -61,44 +61,45 @@ a {
 
     }
 
-            button {
-          background-color: #7AF951;
-          color: #000;
-          font-weight: bold;
-          padding: 1rem 3.2rem;
-          border: none;
-          border-radius: 0.6rem;
-          transition: transform 0.7s;
+    button {
+      background-color: #7AF951;
+      color: #000;
+      font-weight: bold;
+      padding: 1rem 3.2rem;
+      border: none;
+      border-radius: 0.6rem;
+      transition: transform 0.7s;
 
-          &:hover {
-            transform: scale(1.2);
-          }
-          }
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
 
-      button[type="submit"] {
-        margin: 0.5rem;
-        background-color: #7AF951;
-        color: #000;
-        font-weight: bold;
-        padding: 1rem 3.2rem;
-        border: none;
-        border-radius: 0.6rem;
-        cursor: pointer;
-        transition: transform 0.7s;
+    button[type="submit"] {
+      margin: 0.5rem;
+      background-color: #7AF951;
+      color: #000;
+      font-weight: bold;
+      padding: 1rem 3.2rem;
+      border: none;
+      border-radius: 0.6rem;
+      cursor: pointer;
+      transition: transform 0.7s;
 
-        &:hover {
-          transform: scale(1.2);
-        }
+      &:hover {
+        transform: scale(1.2);
+      }
 
 
 
       a {
         margin: 0.5rem;
         text-decoration: none;
-        }
       }
     }
   }
+}
+
 .login {
   text-align: center;
   padding: 3rem 2rem;
@@ -191,7 +192,7 @@ a {
     object-fit: cover;
     border-radius: 1rem;
     margin-bottom: 2rem;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   }
 
   a {
@@ -204,7 +205,7 @@ a {
       border: none;
       outline: none;
       transition: transform 0.7s;
-      
+
       &:hover {
         transform: scale(1.2);
       }
@@ -217,6 +218,7 @@ header {
     font-family: "Andada Pro", serif;
     padding-left: 1rem;
   }
+
   background-color: #7AF951;
   width: 100%;
   padding-top: 1rem;
@@ -242,7 +244,8 @@ body {
   .text {
     color: white;
     padding-left: 5%;
-        .btn-cv {
+
+    .btn-cv {
       display: inline-block;
       margin-top: 1.5rem;
       background-color: #7AF951;
@@ -287,6 +290,7 @@ body {
     text-align: center;
     font-family: "Arvo";
   }
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -360,113 +364,139 @@ body {
   }
 
   .flash {
-  max-width: 600px;
-  margin: 1.5rem auto;
-  padding: 1rem 1.5rem;
-  border-radius: 0.75rem;
-  font-size: 16px;
-  line-height: 1.4;
-  text-align: center;
-  font-family: sans-serif;
-      p {
-    margin: 0;
-    font-size: 16px;
-  }
-
-    &.success {
-      background-color: #7AF951;
-      color: #000;
-    }
-
-    &.error {
-      background-color: #ff6b6b;
-      color: #000;
-    }
-  }
-
-  .contact-form {
     max-width: 600px;
-    margin: 0 auto 3rem auto;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    margin: 1.5rem auto;
+    padding: 1rem 1.5rem;
+  }
+}
 
-    label {
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-      font-weight: bold;
-      margin-bottom: 1.2rem;
-      color: #333;
+.competences {
+  padding: 2rem;
 
-      input {
-        margin-top: 0.4rem;
-        padding: 0.6rem 0.8rem;
-        border-radius: 0.5rem;
-        border: 1px solid #ccc;
-        font-size: 1rem;
-        font-family: sans-serif;
-        transition: border 0.3s ease, box-shadow 0.3s ease;
-
-        &:focus {
-          outline: none;
-          border-color: #7AF951;
-          box-shadow: 0 0 5px rgba(122, 249, 81, 0.5);
-        }
-      }
-
-      textarea {
-        margin-top: 0.4rem;
-        padding: 0.6rem 0.8rem;
-        min-height: 120px;
-        resize: vertical;
-        border-radius: 0.5rem;
-        border: 1px solid #ccc;
-        font-size: 1rem;
-        font-family: sans-serif;
-        transition: border 0.3s ease, box-shadow 0.3s ease;
-
-        &:focus {
-          outline: none;
-          border-color: #7AF951;
-          box-shadow: 0 0 5px rgba(122, 249, 81, 0.5);
-        }
-      }
-    }
-
-    .btn-submit {
-      align-self: center;
-      margin-top: 1rem;
-      background-color: #7AF951;
-      color: #000;
-      font-weight: bold;
-      padding: 1rem 3.2rem;
-      border: none;
-      border-radius: 0.6rem;
-      cursor: pointer;
-      transition: transform 0.7s;
-
-      &:hover {
-        transform: scale(1.2);
-      }
-
-      &:focus {
-        outline: 2px solid #5cd33c;
-        outline-offset: 2px;
-      }
-    }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: "Arvo";
+    color: #333;
   }
 
-  .contactinfo {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
+  .competence-grid {
+    display: grid;
+    gap: 1.5rem;
+
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .competence-card {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    h3 {
+      font-family: "Arvo";
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
 
     p {
-      font-size: 20px;
+      font-size: 1rem;
+      color: #555;
+      margin: 0;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
   }
 }
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+    color: #333;
+
+    input {
+      margin-top: 0.4rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      font-family: sans-serif;
+      transition: border 0.3s ease, box-shadow 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: #7AF951;
+        box-shadow: 0 0 5px rgba(122, 249, 81, 0.5);
+      }
+    }
+
+    textarea {
+      margin-top: 0.4rem;
+      padding: 0.6rem 0.8rem;
+      min-height: 120px;
+      resize: vertical;
+      border-radius: 0.5rem;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      font-family: sans-serif;
+      transition: border 0.3s ease, box-shadow 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: #7AF951;
+        box-shadow: 0 0 5px rgba(122, 249, 81, 0.5);
+      }
+    }
+  }
+
+  .btn-submit {
+    align-self: center;
+    margin-top: 1rem;
+    background-color: #7AF951;
+    color: #000;
+    font-weight: bold;
+    padding: 1rem 3.2rem;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: transform 0.7s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:focus {
+      outline: 2px solid #5cd33c;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.contactinfo {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+
+  p {
+    font-size: 20px;
+  }
+}
+
 
 
 .dashboard {
@@ -562,62 +592,126 @@ body {
   }
 
   .message {
-  border: 2px solid #7AF951;
-  padding: 1rem;
-  margin: 1.5rem auto;
-  max-width: 800px;
-  border-radius: 1rem;
+    border: 2px solid #7AF951;
+    padding: 1rem;
+    margin: 1.5rem auto;
+    max-width: 800px;
+    border-radius: 1rem;
 
-  &.unread {
-    background-color: rgba(122, 249, 81, 0.15);
-  }
-
-  &.read {
-    opacity: 0.7;
-  }
-}
-
-
-  @media screen and (min-width: 768px) {
-    h2 {
-      font-size: 3rem;
+    &.unread {
+      background-color: rgba(122, 249, 81, 0.15);
     }
 
-    form {
-      input,
-      textarea {
-        font-size: 1.1rem;
-      }
-    }
-
-    .title {
-      font-size: 2rem;
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    h2 {
-      font-size: 3.5rem;
-    }
-
-    form {
-      input,
-      textarea {
-        font-size: 1.2rem;
-      }
-    }
-
-    .title {
-      font-size: 2.2rem;
+    &.read {
+      opacity: 0.7;
     }
   }
 }
 
-footer {
-  background-color: #7AF951;
-  width: 100%;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.competences {
+  padding: 2rem;
+
+  .competencetitre {
+    font-size: 40px;
+    text-align: center;
+    font-family: "Arvo";
+    margin-bottom: 1.5rem;
+  }
+
+  .grid-container {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr; // mobile-first : une seule colonne
+  }
+
+  .competence-card {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #222;
+      font-family: "Arvo";
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      margin: 0;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+  }
+}
+
+.experiences {
+  padding: 2rem;
+
+  .experiencetitre {
+    font-size: 40px;
+    text-align: center;
+    font-family: "Arvo";
+  }
+
+  .grid-container {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .experience {
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    a {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 1rem;
+      text-decoration: none;
+      color: inherit;
+      align-items: center;
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        object-fit: cover;
+      }
+
+      .experiencedesc {
+        .title {
+          font-size: 1.25rem;
+          margin: 0 0 0.5rem 0;
+        }
+
+        .desc {
+          font-size: 1rem;
+          line-height: 1.4;
+          color: #555;
+        }
+      }
+    }
+  }
+
+  footer {
+    background-color: #7AF951;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 }
 
 @media screen and (min-width: 761px) {
@@ -626,10 +720,12 @@ footer {
       h2 {
         font-size: 60px;
       }
+
       p {
         font-size: 25px;
       }
     }
+
     .profil {
       width: 35%;
       height: 35%;
@@ -643,6 +739,7 @@ footer {
   .skills {
     margin-left: 15%;
     margin-right: 15%;
+
     p {
       font-size: 25px;
     }
@@ -652,13 +749,16 @@ footer {
     .projettitre {
       font-size: 60px;
     }
+
     .projet {
       h2 {
         font-size: 25px;
       }
+
       p {
         font-size: 25px;
       }
+
       img {
         height: 20em;
       }
@@ -669,9 +769,14 @@ footer {
     h2 {
       font-size: 60px;
     }
+
     .contactinfo p {
       font-size: 25px;
     }
+  }
+
+  .competence-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -681,6 +786,7 @@ footer {
       h2 {
         font-size: 70px;
       }
+
       p {
         font-size: 30px;
       }
@@ -714,6 +820,7 @@ footer {
     h2 {
       font-size: 70px;
     }
+
     .contactinfo p {
       font-size: 30px;
     }
@@ -729,5 +836,9 @@ footer {
 
   .projects img {
     max-height: 600px;
+  }
+
+  .competence-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

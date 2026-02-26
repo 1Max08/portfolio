@@ -3,9 +3,9 @@
 namespace repositories;
 
 require_once "services/database.php";
-require_once "models/Project.php";
+require_once "models/Projet.php";
 
-use models\Project;
+use models\Projet;
 
 class ProjetRepository {
     private \PDO $pdo;
@@ -14,7 +14,7 @@ class ProjetRepository {
         $this->pdo = getConnexion();
     }
 
-    public function getProjetById(int $id): ?Project {
+    public function getProjetById(int $id): ?Projet {
         $query = $this->pdo->prepare('SELECT * FROM projet WHERE id = :id');
         $query->bindParam(':id', $id, \PDO::PARAM_INT);
         $query->execute();
@@ -25,7 +25,7 @@ class ProjetRepository {
             return null;
         }
 
-        return new Project(
+        return new Projet(
             (int)$data['id'],
             $data['titre'] ?? '',
             $data['description'] ?? '',
@@ -42,7 +42,7 @@ class ProjetRepository {
 
         $projects = [];
         foreach ($rows as $row) {
-            $projects[] = new Project(
+            $projects[] = new Projet(
                 (int)$row['id'],
                 $row['titre'] ?? '',
                 $row['description'] ?? '',

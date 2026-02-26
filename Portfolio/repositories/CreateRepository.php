@@ -2,9 +2,9 @@
 namespace repositories;
 
 require_once "services/database.php";
-require_once "models/Project.php";
+require_once "models/Projet.php";
 
-use models\Project;
+use models\Projet;
 
 class CreateRepository {
 
@@ -14,7 +14,7 @@ class CreateRepository {
         $this->pdo = getConnexion();
     }
 
-    public function getProjetById(int $id): ?Project {
+    public function getProjetById(int $id): ?Projet {
         $query = $this->pdo->prepare('SELECT * FROM projet WHERE id = :id');
         $query->bindParam(':id', $id, \PDO::PARAM_INT);
         $query->execute();
@@ -24,7 +24,7 @@ class CreateRepository {
             return null;
         }
 
-        return new Project(
+        return new Projet(
             (int)$data['id'],
             $data['titre'] ?? '',
             $data['description'] ?? '',
@@ -33,7 +33,7 @@ class CreateRepository {
         );
     }
 
-    public function createProjet(Project $project): bool {
+    public function createProjet(Projet $project): bool {
         $query = $this->pdo->prepare(
             'INSERT INTO projet (titre, description, image, short_description) VALUES (?, ?, ?, ?)'
         );

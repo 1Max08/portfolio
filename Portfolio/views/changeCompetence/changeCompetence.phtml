@@ -1,0 +1,28 @@
+<?php if (!isset($_SESSION)) session_start(); ?>
+
+<div class="change">
+    <h2>Modifier la compétence</h2>
+
+    <?php if (isset($error)): ?>
+        <div class="error"><?= htmlspecialchars($error) ?></div>
+    <?php endif; ?>
+
+    <?php if ($competence): ?>
+    <form method="POST">
+        <label>
+            Nom:
+            <input type="text" name="name" value="<?= htmlspecialchars($competence->name) ?>" required />
+        </label>
+
+        <label>
+            Niveau:
+            <input type="text" name="level" value="<?= htmlspecialchars($competence->level) ?>" required />
+        </label>
+
+        <button type="submit">Sauvegarder</button>
+        <a href="index.php?page=board">
+            <button type="button">Retourner</button>
+        </a>
+    </form>
+    <?php endif; ?>
+</div>

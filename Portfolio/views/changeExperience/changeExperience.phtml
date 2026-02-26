@@ -1,0 +1,38 @@
+<?php if (!isset($_SESSION)) session_start(); ?>
+
+<div class="change">
+    <h2>Modifier l'expérience</h2>
+
+    <?php if (isset($error)): ?>
+        <div class="error"><?= htmlspecialchars($error) ?></div>
+    <?php endif; ?>
+
+    <?php if ($experience): ?>
+    <form method="POST">
+        <label>
+            Titre:
+            <input type="text" name="title" value="<?= htmlspecialchars($experience->title) ?>" required />
+        </label>
+
+        <label>
+            Courte description:
+            <input type="text" name="short_description" value="<?= htmlspecialchars($experience->short_description) ?>" required />
+        </label>
+
+        <label>
+            Description complète:
+            <textarea name="description" required><?= htmlspecialchars($experience->description) ?></textarea>
+        </label>
+
+        <label>
+            Image (nom de fichier):
+            <input type="text" name="image" value="<?= htmlspecialchars($experience->image) ?>" />
+        </label>
+
+        <button type="submit">Sauvegarder</button>
+        <a href="index.php?page=board">
+            <button type="button">Retourner</button>
+        </a>
+    </form>
+    <?php endif; ?>
+</div>

@@ -358,32 +358,53 @@ body {
   max-width: 600px;
   margin: 1.5rem auto;
   padding: 1rem 1.5rem;
-  border-radius: 0.75rem;
-  font-size: 16px;
-  line-height: 1.4;
+}
+
+.competences {
+  padding: 2rem;
+}
+.competences h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
-  font-family: sans-serif;
+  font-family: "Arvo";
+  color: #333;
 }
-.contact .flash p {
+.competences .competence-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.competences .competence-card {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.competences .competence-card h3 {
+  font-family: "Arvo";
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+.competences .competence-card p {
+  font-size: 1rem;
+  color: #555;
   margin: 0;
-  font-size: 16px;
 }
-.contact .flash.success {
-  background-color: #7AF951;
-  color: #000;
+.competences .competence-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
-.contact .flash.error {
-  background-color: #ff6b6b;
-  color: #000;
-}
-.contact .contact-form {
+
+.contact-form {
   max-width: 600px;
   margin: 0 auto 3rem auto;
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
-.contact .contact-form label {
+.contact-form label {
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -391,7 +412,7 @@ body {
   margin-bottom: 1.2rem;
   color: #333;
 }
-.contact .contact-form label input {
+.contact-form label input {
   margin-top: 0.4rem;
   padding: 0.6rem 0.8rem;
   border-radius: 0.5rem;
@@ -400,12 +421,12 @@ body {
   font-family: sans-serif;
   transition: border 0.3s ease, box-shadow 0.3s ease;
 }
-.contact .contact-form label input:focus {
+.contact-form label input:focus {
   outline: none;
   border-color: #7AF951;
   box-shadow: 0 0 5px rgba(122, 249, 81, 0.5);
 }
-.contact .contact-form label textarea {
+.contact-form label textarea {
   margin-top: 0.4rem;
   padding: 0.6rem 0.8rem;
   min-height: 120px;
@@ -416,12 +437,12 @@ body {
   font-family: sans-serif;
   transition: border 0.3s ease, box-shadow 0.3s ease;
 }
-.contact .contact-form label textarea:focus {
+.contact-form label textarea:focus {
   outline: none;
   border-color: #7AF951;
   box-shadow: 0 0 5px rgba(122, 249, 81, 0.5);
 }
-.contact .contact-form .btn-submit {
+.contact-form .btn-submit {
   align-self: center;
   margin-top: 1rem;
   background-color: #7AF951;
@@ -433,19 +454,20 @@ body {
   cursor: pointer;
   transition: transform 0.7s;
 }
-.contact .contact-form .btn-submit:hover {
+.contact-form .btn-submit:hover {
   transform: scale(1.2);
 }
-.contact .contact-form .btn-submit:focus {
+.contact-form .btn-submit:focus {
   outline: 2px solid #5cd33c;
   outline-offset: 2px;
 }
-.contact .contactinfo {
+
+.contactinfo {
   display: flex;
   justify-content: center;
   gap: 3rem;
 }
-.contact .contactinfo p {
+.contactinfo p {
   font-size: 20px;
 }
 
@@ -540,32 +562,91 @@ body {
 .dashboard .message.read {
   opacity: 0.7;
 }
-@media screen and (min-width: 768px) {
-  .dashboard h2 {
-    font-size: 3rem;
-  }
-  .dashboard form input,
-  .dashboard form textarea {
-    font-size: 1.1rem;
-  }
-  .dashboard .title {
-    font-size: 2rem;
-  }
+
+.competences {
+  padding: 2rem;
 }
-@media screen and (min-width: 1024px) {
-  .dashboard h2 {
-    font-size: 3.5rem;
-  }
-  .dashboard form input,
-  .dashboard form textarea {
-    font-size: 1.2rem;
-  }
-  .dashboard .title {
-    font-size: 2.2rem;
-  }
+.competences .competencetitre {
+  font-size: 40px;
+  text-align: center;
+  font-family: "Arvo";
+  margin-bottom: 1.5rem;
+}
+.competences .grid-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+.competences .competence-card {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.competences .competence-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+  font-family: "Arvo";
+}
+.competences .competence-card p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+.competences .competence-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-footer {
+.experiences {
+  padding: 2rem;
+}
+.experiences .experiencetitre {
+  font-size: 40px;
+  text-align: center;
+  font-family: "Arvo";
+}
+.experiences .grid-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.experiences .experience {
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.experiences .experience:hover {
+  transform: translateY(-5px);
+}
+.experiences .experience a {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  align-items: center;
+}
+.experiences .experience a img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.experiences .experience a .experiencedesc .title {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+}
+.experiences .experience a .experiencedesc .desc {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #555;
+}
+.experiences footer {
   background-color: #7AF951;
   width: 100%;
   padding-top: 1rem;
@@ -611,6 +692,9 @@ footer {
   .contact .contactinfo p {
     font-size: 25px;
   }
+  .competence-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media screen and (min-width: 1024px) {
   .introduction .text h2 {
@@ -650,5 +734,8 @@ footer {
   }
   .projects img {
     max-height: 600px;
+  }
+  .competence-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }/*# sourceMappingURL=app.css.map */

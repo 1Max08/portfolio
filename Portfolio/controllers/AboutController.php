@@ -3,12 +3,16 @@ namespace controllers;
 
 require_once "repositories/AboutRepository.php";
 require_once "repositories/ContactRepository.php";
-require_once "models/Project.php";
+require_once "repositories/CompetenceRepository.php";
+require_once "repositories/ExperienceRepository.php";
+require_once "models/Projet.php";
 require_once "models/Profil.php";
 
 use repositories\AboutRepository;
 use repositories\ContactRepository;
-use models\Project;
+use repositories\CompetenceRepository;
+use repositories\ExperienceRepository;
+use models\Projet;
 use models\Profil;
 
 class AboutController {
@@ -24,6 +28,11 @@ class AboutController {
     public function about(): void {
         $profil = $this->aboutRepository->getProfil();
         $projet = $this->aboutRepository->getProjet();
+        $competenceRepo = new CompetenceRepository();
+        $competences = $competenceRepo->getAll();
+        // charger les experiences pour la page about
+        $experienceRepo = new ExperienceRepository();
+        $experiences = $experienceRepo->getExperience();
 
         if (isset($_POST['contact_submit'])) {
             $name = trim($_POST['contact_name']);

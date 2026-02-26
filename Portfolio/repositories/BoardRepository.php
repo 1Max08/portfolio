@@ -4,10 +4,10 @@ namespace repositories;
 require_once "services/database.php";
 require_once "repositories/AbstractRepository.php";
 require_once "models/Profil.php";
-require_once "models/Project.php";
+require_once "models/Projet.php";
 
 use models\Profil;
-use models\Project;
+use models\Projet;
 
 class BoardRepository extends AbstractRepository {
 
@@ -31,7 +31,7 @@ class BoardRepository extends AbstractRepository {
 
         $projects = [];
         foreach ($rows as $row) {
-            $projects[] = new Project(
+            $projects[] = new Projet(
                 (int)$row['id'],
                 $row['titre'] ?? '',
                 $row['description'] ?? '',
@@ -55,5 +55,26 @@ class BoardRepository extends AbstractRepository {
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
         $stmt->execute();
+    }
+
+    public function getCompetences(): array {
+        $stmt = $this->pdo->query("SELECT * FROM competence ORDER BY id ASC");
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+    public function getCompetenceById(int $id) {
+        $stmt = $this->pdo->prepare("SELECT * FROM competence WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(\PDO::FETCH_OBJ);
+    }
+
+    public function addCompetence(string $name, string $level): bool {
+        $stmt = $this->pdo->prepare("INSERT INTO competence (name, level) VALUES (?, ?)");
+        return $stmt->execute([$name, $level]);
+    }
+
+    public function deleteCompetence(int $id): bool {
+        $stmt = $this->pdo->prepare("DELETE FROM competence WHERE id = ?");
+        return $stmt->execute([$id]);
     }
 }

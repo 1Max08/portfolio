@@ -2,11 +2,11 @@
 namespace controllers;
 
 require_once "repositories/ProjetRepository.php";
-require_once "models/Project.php";
+require_once "models/Projet.php";
 require_once "AbstractController.php";
 
 use repositories\ProjetRepository;
-use models\Project;
+use models\Projet;
 
 class ProjetController extends AbstractController {
 
