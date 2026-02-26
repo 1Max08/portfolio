@@ -16,7 +16,6 @@ class AboutRepository {
         $this->pdo = getConnexion();
     }
 
-    // Retourne un objet Profil
     public function getProfil(): ?Profil {
         $query = $this->pdo->prepare('SELECT * FROM profil WHERE id = 1');
         $query->execute();
@@ -31,7 +30,7 @@ class AboutRepository {
             $data['profil_image'] ?? ''
         );
     }
-    
+
     public function getProjet(): array {
         $query = $this->pdo->prepare('SELECT * FROM projet');
         $query->execute();

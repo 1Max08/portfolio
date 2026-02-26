@@ -42,12 +42,12 @@ class BoardRepository extends AbstractRepository {
         return $projects;
     }
     
-    public function updateProfil(string $introduction, string $description, string $profilImage): bool {
+    public function updateProfil(string $introduction, string $description, string $profil_image): bool {
         $query = $this->pdo->prepare(
             'UPDATE profil SET introduction = ?, description = ?, profil_image = ? WHERE id = 1'
     );
 
-    return $query->execute([$introduction, $description, $profilImage]);
+    return $query->execute([$introduction, $description, $profil_image]);
     }
 
     public function deleteProjet(int $id): void {

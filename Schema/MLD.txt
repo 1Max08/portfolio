@@ -1,6 +1,6 @@
 category: id, categories
 
-profil: id, description, introduction
+profil: id, description, introduction, profil_image
 
 projet: id, titre, description,image ,short_description, #id_category
 

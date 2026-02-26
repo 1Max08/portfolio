@@ -17,10 +17,10 @@ if (!isset($_SESSION['user'])) {
         <textarea name="description"><?= htmlspecialchars($profil->description ?? '') ?></textarea>
         
         <p>Photo de profil (URL):</p>
-        <input type="text" name="photo" value="<?= htmlspecialchars($profil->profil_image ?? '') ?>" />
+        <input type="text" name="profil_image" value="<?= htmlspecialchars($profil->profil_image ?? '') ?>" />
 
-    <button type="submit">Changer</button>
-</form>
+        <button type="submit">Changer</button>
+    </form>
 
     <?php foreach ($projects as $project): ?>
         <h2 class="title"><?= htmlspecialchars($project->title) ?></h2>
