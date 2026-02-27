@@ -1,44 +1,36 @@
-<?php if (!isset($_SESSION)) session_start(); ?>
+<?php
 
-<!-- CONTENEUR PRINCIPAL DE LA PAGE DE MODIFICATION -->
+if (!isset($_SESSION)) session_start();
+?>
+
 <div class="change">
-    <h2>Modifier le projet</h2>
+    <h2>Modifier la compétence</h2>
 
-    <!-- AFFICHAGE DES ERREURS -->
+    <?php // Si un message d'erreur est fourni, l'afficher de façon sécurisée ?>
     <?php if (isset($error)): ?>
-    <div class="error"><?= htmlspecialchars($error) ?></div>
+        <div class="error"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
 
-    <!-- FORMULAIRE DE MODIFICATION -->
+    <?php // Vérifie que l'objet $competence existe avant d'afficher le formulaire ?>
+    <?php if ($competence): ?>
+    <!-- Formulaire d'édition : envoi en POST vers la même route -->
     <form method="POST">
-        <!-- Champ Titre -->
         <label>
-            Titre:
-            <input type="text" name="titre" value="<?= htmlspecialchars($project->title ?? '') ?>" required />
+            Nom:
+            <!-- Valeur échappée pour éviter les XSS -->
+            <input type="text" name="name" value="<?= htmlspecialchars($competence->name) ?>" required />
         </label>
 
-        <!-- Champ Description complète -->
         <label>
-            Description:
-            <textarea name="description" required><?= htmlspecialchars($project->description ?? '') ?></textarea>
+            Niveau:
+            <!-- Niveau de la compétence, champ texte (peut être remplacé par select si nécessaire) -->
+            <input type="text" name="level" value="<?= htmlspecialchars($competence->level) ?>" required />
         </label>
 
-        <!-- Champ Image (URL) -->
-        <label>
-            Image (URL):
-            <input type="text" name="image" value="<?= htmlspecialchars($project->image ?? '') ?>" required />
-        </label>
-
-        <!-- Champ Description courte -->
-        <label>
-            Description courte:
-            <textarea name="short_description" required><?= htmlspecialchars($project->short_description ?? '') ?></textarea>
-        </label>
-
-        <!-- Boutons d'action -->
-        <button type="submit">Sauvegarder les modifications</button>
+        <button type="submit">Sauvegarder</button>
         <a href="index.php?page=board">
             <button type="button">Retourner</button>
         </a>
     </form>
+    <?php endif; ?>
 </div>
