@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 23 jan. 2026 à 15:51
+-- Généré le : sam. 28 fév. 2026 à 03:10
 -- Version du serveur : 5.7.24
 -- Version de PHP : 8.3.1
 
@@ -43,6 +43,30 @@ INSERT INTO `category` (`id`, `categories`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `competence`
+--
+
+CREATE TABLE `competence` (
+  `id` int(10) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `level` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `competence`
+--
+
+INSERT INTO `competence` (`id`, `name`, `level`) VALUES
+(2, 'HTML', 'Bonne maîtrise'),
+(5, 'JavaScript', 'Bonne maîtrise'),
+(6, 'PHP', 'Bonne maîtrise'),
+(7, 'React', 'Bon niveau'),
+(8, 'Node.js', 'Niveau intermédiaire'),
+(9, 'Python', 'Bases solides');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `contact_message`
 --
 
@@ -59,21 +83,43 @@ CREATE TABLE `contact_message` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `experience`
+--
+
+CREATE TABLE `experience` (
+  `id` int(10) NOT NULL,
+  `image` varchar(2500) NOT NULL,
+  `description` varchar(2500) NOT NULL,
+  `title` varchar(2500) NOT NULL,
+  `short_description` varchar(2500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `experience`
+--
+
+INSERT INTO `experience` (`id`, `image`, `description`, `title`, `short_description`) VALUES
+(1, 'natixis.png', 'Lors de mon stage chez Natixis, filiale du groupe BPCE, j’ai intégré l’équipe KYC IT, dédiée aux outils et processus liés au Know Your Customer.\r\n\r\nJ’y ai documenté des workflows et des cas d’usage externalisés à eClerx, en analysant les flux, les points de contrôle et les responsabilités afin d’améliorer la clarté et la conformité des processus.\r\n\r\nJ’ai également utilisé Alteryx pour automatiser des traitements de données, en concevant des workflows permettant de nettoyer et consolider des informations issues de différentes sources. Cette automatisation a permis de réduire les tâches manuelles, limiter les erreurs et optimiser l’analyse des processus métiers.', 'Stage De 2 Mois chez Natixis', 'Stage dans la team KYC IT a Natixis');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `profil`
 --
 
 CREATE TABLE `profil` (
   `id` int(10) NOT NULL,
   `description` varchar(1255) NOT NULL,
-  `introduction` varchar(255) NOT NULL
+  `introduction` varchar(255) NOT NULL,
+  `profil_image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `profil`
 --
 
-INSERT INTO `profil` (`id`, `description`, `introduction`) VALUES
-(1, 'Je m’appelle Max, étudiant en 2ᵉ année à la 3W Academy, où je me forme pour devenir développeur full stack.\r\nActuellement, j\'apprends a travaille avec des technologies comme React, Node.js, TypeScript et Symfony.\r\nCe portfolio est un aperçu de mon parcours, de mes projets et de ma progression dans le développement web.', 'Bienvenue!');
+INSERT INTO `profil` (`id`, `description`, `introduction`, `profil_image`) VALUES
+(1, 'Je m’appelle Max, étudiant en 2ᵉ année à la 3W Academy, où je me forme pour devenir développeur full stack. Actuellement, j\'apprends a travaille avec des technologies comme React, Node.js, TypeScript et Symfony. Ce portfolio est un aperçu de mon parcours, de mes projets et de ma progression dans le développement web.', 'Bienvenue!', 'profil.png');
 
 -- --------------------------------------------------------
 
@@ -131,9 +177,21 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `competence`
+--
+ALTER TABLE `competence`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `contact_message`
 --
 ALTER TABLE `contact_message`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `experience`
+--
+ALTER TABLE `experience`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -166,10 +224,22 @@ ALTER TABLE `category`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT pour la table `competence`
+--
+ALTER TABLE `competence`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT pour la table `contact_message`
 --
 ALTER TABLE `contact_message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `experience`
+--
+ALTER TABLE `experience`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `profil`
@@ -181,7 +251,7 @@ ALTER TABLE `profil`
 -- AUTO_INCREMENT pour la table `projet`
 --
 ALTER TABLE `projet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `user`

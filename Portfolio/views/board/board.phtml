@@ -12,7 +12,7 @@ if (!isset($_SESSION['user'])) {
 ?>
 
 <div class="dashboard">
-    <?php // Section : édition du profil utilisateur ?>
+    <!-- // Section : édition du profil utilisateur -->
     <h2>Éditer le profil</h2>
 
     <form method="POST">
@@ -28,7 +28,7 @@ if (!isset($_SESSION['user'])) {
         <button type="submit" name="updateProfil">Changer</button>
     </form>
 
-    <?php // Section : gestion des compétences (ajout, modification, suppression) ?>
+    <!-- Section : gestion des compétences (ajout, modification, suppression) -->
     <h2>Compétences</h2>
 
     <!-- Ajouter compétence -->
@@ -86,31 +86,7 @@ if (!isset($_SESSION['user'])) {
     </form>
     <?php endif; ?>
 
-    <?php // Section : projets (liste avec actions) ?>
-    <?php foreach ($projects as $project): ?>
-    <h2 class="title"><?= htmlspecialchars($project->title) ?></h2>
-    <div class="dashboard-buttons">
-        <a href="index.php?page=change&id=<?= $project->id ?>">
-            <button type="button">Changer</button>
-        </a>
-        <a href="index.php?page=board&deleteProject=<?= $project->id ?>"
-            onclick="return confirm('Voulez-vous vraiment supprimer ce projet ?');">
-            <button type="button">Supprimer</button>
-        </a>
-    </div>
-    <?php endforeach; ?>
-
-
-    <div class="dashboard-buttons">
-        <a href="index.php?page=create">
-            <button type="button">Créer</button>
-        </a>
-        <a href="index.php?page=about">
-            <button type="button">Retourner</button>
-        </a>
-    </div>
-
-    <?php // Section : expériences (CRUD simple) ?>
+    <!-- Section : expériences (CRUD simple) -->
     <h2>Experiences</h2>
     <?php if (!empty($experiences)): ?>
     <?php foreach ($experiences as $exp): ?>
@@ -135,8 +111,31 @@ if (!isset($_SESSION['user'])) {
         <a href="index.php?page=createExperience"><button type="button">Créer une expérience</button></a>
     </div>
 
+    <!-- Section : projets (liste avec actions) -->
+    <?php foreach ($projects as $project): ?>
+    <h2 class="title"><?= htmlspecialchars($project->title) ?></h2>
+    <div class="dashboard-buttons">
+        <a href="index.php?page=change&id=<?= $project->id ?>">
+            <button type="button">Changer</button>
+        </a>
+        <a href="index.php?page=board&deleteProject=<?= $project->id ?>"
+            onclick="return confirm('Voulez-vous vraiment supprimer ce projet ?');">
+            <button type="button">Supprimer</button>
+        </a>
+    </div>
+    <?php endforeach; ?>
 
-    <?php // Section : messages reçus (lecture / suppression) ?>
+
+    <div class="dashboard-buttons">
+        <a href="index.php?page=create">
+            <button type="button">Créer</button>
+        </a>
+        <a href="index.php?page=about">
+            <button type="button">Retourner</button>
+        </a>
+    </div>
+
+    <!-- Section : messages reçus (lecture / suppression) -->
     <h2>Messages reçus</h2>
 
     <?php if (empty($messages)): ?>
